@@ -1,41 +1,23 @@
-.App {
-  text-align: center;
+
+#homebg{
+background-image: url("homebg.png") ;
+background-repeat: no-repeat;
+height: 92vh;
+background-size: 100%;
+}
+.features{
+    padding: 5px;
+    height: fit-content;
+    width: 220px;
+    background-color: rgba(0, 0, 0, 0.335);
+}
+.city{
+    background-image: url("homebg.png");
+    height: 250px;
+    background-size: 100%;
+    border: 3px solid black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 /* my code */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 *{
@@ -348,4 +330,12 @@ body.dark .home .text{
 }
  ul {
   padding: unset;
+ }
+
+.cityname{
+    position:relative;
+    top: 220px;
+    background-image: radial-gradient(#ffb2b2,rgba(0, 0, 255, 0));
+    text-align: center;
+
 }
