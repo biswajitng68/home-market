@@ -17,10 +17,13 @@ export default function Login(){
     };
     return(
         <>
+        <section className="home">
+        <div className="text">Log in</div>
+    
         <div><form >
         <div  style={lst}>
             <div className="wrap" style={nst}>
-                <h2  style={st}>Log in</h2>
+                {/* <h2  style={st}>Log in</h2> */}
             <fieldset>
             
         <div className="form-floating mb-3">
@@ -42,6 +45,7 @@ export default function Login(){
 </div>
 <div></div>
 </form></div>
+</section>
 <Outlet/>
         </>
     )

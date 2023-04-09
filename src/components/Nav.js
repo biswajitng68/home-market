@@ -2,14 +2,6 @@ import {Outlet,Link} from 'react-router-dom';
 import '../App.css';
 import React, { useEffect, useState } from "react";
 export default function Nav(){
-  
- 
-  const body =()=>{document.querySelector("body")} ;
-  const sidebar =() =>{document.querySelector("body.nav")};
-  const toggle = ()=>{document.querySelector("body.toggle")};
-  const searchBtn = ()=>{document.querySelector("body.search-box")};
-  const modeSwitch =()=>{document.querySelector("body.toggle-switch")};
-  const modeText =()=>{document.querySelector("body.mode-text")};
  
  const [mode,setMode]=useState("Light");
 const [close,setClose]=useState(false);
@@ -52,44 +44,44 @@ useEffect(() => {
 
                 <ul className="menu-links" >
                     <li className="nav-link">
-                        <a href="#">
+                        <Link to="../">
                             <i className='bx bx-home-alt icon' ></i>
                             <span className="text nav-text">Home</span>
+                        </Link>
+                    </li>
+
+                    <li className="nav-link">
+                        <a href="#">
+                        <i class='bx bxs-category icon'></i>
+                            <span className="text nav-text">All rooms</span>
                         </a>
                     </li>
 
                     <li className="nav-link">
                         <a href="#">
-                            <i className='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span className="text nav-text">Option1</span>
+                            <i class='bx bxs-city icon' ></i>
+                            <span className="text nav-text">All cities</span>
                         </a>
                     </li>
 
                     <li className="nav-link">
                         <a href="#">
-                            <i className='bx bx-bell icon'></i>
-                            <span className="text nav-text">Option2</span>
+                        <i class='bx bx-building icon'></i>
+                            <span className="text nav-text">All roomtypes</span>
                         </a>
                     </li>
 
                     <li className="nav-link">
                         <a href="#">
-                            <i class='bx bx-coffee icon' ></i>
-                            <span className="text nav-text">Option3</span>
+                        <i class='bx bx-user icon'></i>
+                            <span className="text nav-text">Profile</span>
                         </a>
                     </li>
 
                     <li className="nav-link">
                         <a href="#">
-                            <i className='bx bx-heart icon' ></i>
-                            <span className="text nav-text">Option4</span>
-                        </a>
-                    </li>
-
-                    <li className="nav-link">
-                        <a href="#">
-                            <i className='bx bx-wallet icon' ></i>
-                            <span className="text nav-text">Option5</span>
+                        <i class='bx bx-info-circle icon'></i>
+                            <span className="text nav-text">About</span>
                         </a>
                     </li>
 
@@ -98,10 +90,10 @@ useEffect(() => {
 
             <div className="bottom-content">
                 <li className="">
-                    <a href="#">
-                        <i className='bx bx-log-out icon' ></i>
-                        <span className="text nav-text">Logout</span>
-                    </a>
+                    <Link to="../login">
+                        <i className='bx bx-log-in icon' ></i>
+                        <span className="text nav-text">Login</span>
+                    </Link>
                 </li>
 
                 <li className="mode">
@@ -123,9 +115,7 @@ useEffect(() => {
 
     </nav>
 
-    <section className="home">
-        <div className="text">Dashboard Sidebar</div>
-    </section>
+
 
         <Outlet/>
         </>

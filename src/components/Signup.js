@@ -17,10 +17,13 @@ export default function Signup(){
     };
     return(
         <>
+        <section className="home">
+        <div className="text">Sign up</div>
+    
         <div><form >
         <div  style={lst}>
             <div className="wrap" style={nst}>
-                <h2  style={st}>Sign up</h2>
+                {/* <h2  style={st}>Sign up</h2> */}
             <fieldset>
             <div className="form-floating mb-3">
   <input type='text' className="form-control" id="floatingInput"  name='name'placeholder="name" required />
@@ -49,6 +52,7 @@ export default function Signup(){
 </div>
 <div></div>
 </form></div>
+</section>
 <Outlet/>
         </>
     )

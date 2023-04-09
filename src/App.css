@@ -8,14 +8,17 @@ background-size: 100%;
 .features{
     padding: 5px;
     height: fit-content;
-    width: 220px;
+    width: 250px;
     background-color: rgba(0, 0, 0, 0.335);
+    padding: 5px;
+    border-radius: 2%;
 }
 .city{
     background-image: url("homebg.png");
     height: 250px;
     background-size: 100%;
     border: 3px solid black;
+    border-radius: 3%;
 }
 
 /* my code */
@@ -116,6 +119,7 @@ body.dark{
     font-weight: 500;
     white-space: nowrap;
     opacity: 1;
+
 }
 .sidebar.close .text{
     opacity: 0;
@@ -307,9 +311,9 @@ body.dark .switch::before{
     position: absolute;
     top: 0;
     top: 0;
-    left: 250px;
+    left: 280px;
     height: 100vh;
-    width: calc(100% - 250px);
+    width: calc(100% - 280px);
     background-color: var(--body-color);
     transition: var(--tran-05);
 }
@@ -318,12 +322,14 @@ body.dark .switch::before{
     font-weight: 500;
     color: var(--text-color);
     padding: 12px 60px;
+    position: sticky;
+    top: 0;
 }
 
 .sidebar.close ~ .home{
-    left: 78px;
+    left: 80px;
     height: 100vh;
-    width: calc(100% - 78px);
+    width: calc(100% - 80px);
 }
 body.dark .home .text{
     color: var(--text-color);
@@ -333,9 +339,16 @@ body.dark .home .text{
  }
 
 .cityname{
-    position:relative;
-    top: 220px;
-    background-image: radial-gradient(#ffb2b2,rgba(0, 0, 255, 0));
+    height: 30%;
+    color: blanchedalmond;
     text-align: center;
 
+}
+.citydetails{
+    position:relative;
+    left: 60%;
+    height: 100%;
+    background-color: #18191a4f;
+    width: 40%;
+    box-shadow: 1px 1px 5px 8px #18191a4f;
 }
