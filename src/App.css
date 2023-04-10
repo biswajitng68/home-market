@@ -17,7 +17,7 @@ background-size: 100%;
     background-image: url("homebg.png");
     height: 250px;
     background-size: 100%;
-    border: 3px solid black;
+    border: 3px solid var(--text-color);
     border-radius: 3%;
 }
 
@@ -322,8 +322,7 @@ body.dark .switch::before{
     font-weight: 500;
     color: var(--text-color);
     padding: 12px 60px;
-    position: sticky;
-    top: 0;
+
 }
 
 .sidebar.close ~ .home{
@@ -340,15 +339,17 @@ body.dark .home .text{
 
 .cityname{
     height: 30%;
-    color: blanchedalmond;
+    color: #00faff;
     text-align: center;
+    font-size: 1.2em;
 
 }
 .citydetails{
     position:relative;
     left: 60%;
     height: 100%;
-    background-color: #18191a4f;
+    background-color: #18191ac7;
     width: 40%;
+    border-radius: 2%;
     box-shadow: 1px 1px 5px 8px #18191a4f;
 }
