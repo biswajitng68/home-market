@@ -9,6 +9,7 @@ import Hotellist from './components/Hotellist';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Nav from './components/Nav';
+import Citywisehotel from './components/Citywisehotel';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
         <Route path="hotellist" element={<Hotellist />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup/>} />
+        <Route path="cityhotels" element={<Citywisehotel/>} />
         </Route>
     </Routes>
     </BrowserRouter>
