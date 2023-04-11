@@ -16,6 +16,8 @@ useEffect(() => {
 
     return(
         <>
+        
+
         <nav className={`sidebar ${close?"close":""}  `}>
         <header>
             <div className="image-text">
@@ -114,7 +116,7 @@ useEffect(() => {
         </div>
 
     </nav>
-
+   
 
 
         <Outlet/>

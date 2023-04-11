@@ -9,13 +9,13 @@ export default function Home(){
     
         <div id='homebg'>
        <div className='d-flex justify-content-end mx-4 '>
-        <div className='features my-4'>
+       {/*  <div className='features my-4'>
         <h3>Main feature</h3>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
          Ullam et, nulla atque quis perspiciatis eveniet reprehenderit 
          praesentium aliquam, aut hic vel minima dolorum incidunt dolorem 
          cupiditate sint sit accusamus doloribus!
-         </div>
+         </div> */}
          
        </div>
         </div>

@@ -68,24 +68,34 @@ body.dark{
 }
 
 /* ===== Sidebar ===== */
+.sidebar{
+    --slidebar_width:290px;
+}
  .sidebar{
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 290px;
+    width: var(--slidebar_width);
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
     z-index: 100;  
 }
 .sidebar.close{
-    width: 88px;
+   --width: 88px;
+}
+.sidebar.close{
+    width:var(--width) ;
 }
 
 /* ===== Reusable code - Here ===== */
 .sidebar li{
-    height: 50px;
+    --hieght:50px;   
+}
+.sidebar li{
+    
+    height: var(--hieght);
     list-style: none;
     display: flex;
     align-items: center;
@@ -94,12 +104,12 @@ body.dark{
 
 .sidebar header .image,
 .sidebar .icon{
-    min-width: 60px;
-    border-radius: 6px;
+    --min-width: 60px;
+    
 }
 
 .sidebar .icon{
-    min-width: 60px;
+    min-width: var(--min-width);
     border-radius: 6px;
     height: 100%;
     display: flex;
@@ -223,6 +233,7 @@ body.dark .sidebar header .toggle{
     transition: var(--tran-03);
 }
 
+
 .sidebar li a:hover{
     background-color: var(--primary-color);
 }
@@ -253,8 +264,13 @@ body.dark .sidebar li a:hover .text{
 }
 
 .menu-bar .mode .sun-moon{
-    height: 50px;
-    width: 60px;
+    --sun_moon_height: 50px;
+    --sun_moon_width: 60px;
+}
+
+.menu-bar .mode .sun-moon{
+    height: var(--sun_moon_height);
+    width: var(--sun_moon_width);
 }
 
 .mode .sun-moon i{
@@ -306,16 +322,22 @@ body.dark .mode .sun-moon i.moon{
 body.dark .switch::before{
     left: 20px;
 }
+.home{
+     --homeleft:280px; 
+   
+     --homewidth: calc(100% - 280px); 
+    
+}
 
 .home{
     position: absolute;
     top: 0;
     top: 0;
-    left: 280px;
+    left: var(--homeleft);
     height: 100vh;
-    width: calc(100% - 280px);
+    width: var(--homewidth);
     background-color: var(--body-color);
-    transition: var(--tran-05);
+    /*transition: var(--tran-05);*/
 }
 .home .text{
     font-size: 30px;
@@ -325,11 +347,15 @@ body.dark .switch::before{
     position: sticky;
     top: 0;
 }
-
 .sidebar.close ~ .home{
-    left: 80px;
+    --close_home_left: 80px;
     height: 100vh;
-    width: calc(100% - 80px);
+    --close_home_width: calc(100% - 80px);
+}
+.sidebar.close ~ .home{
+    left: var(--close_home_left);
+    height: 100vh;
+    width: var(--close_home_width);
 }
 body.dark .home .text{
     color: var(--text-color);
@@ -338,6 +364,45 @@ body.dark .home .text{
   padding: unset;
  }
 
+
+ @media only screen and (max-width: 600px) {
+    .sidebar li{
+        --hieght:30px;   
+    }
+    .sidebar{
+        --slidebar_width:230px;
+    }
+    .sidebar.close{
+        --width: 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding: 0px 0px;
+        background: var(--sidebar-color);
+        transition: var(--tran-05);
+        z-index: 100;
+     }
+     .sidebar .icon{
+        --min-width: 32px;
+        
+    }
+    .menu-bar .mode .sun-moon{
+        --sun_moon_height: 29px;
+        --sun_moon_width: 30px;
+    }
+    .home{
+        --homeleft:0;
+        --homewidth: calc(100%);
+    }
+    .sidebar.close ~ .home{
+        --close_home_left: 0px;
+        height: 100vh;
+        --close_home_width: calc(100%);
+    }
+  }
+
+ /* my code end here RKS*/
 .cityname{
     height: 30%;
     color: blanchedalmond;
