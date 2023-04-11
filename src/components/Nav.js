@@ -60,17 +60,17 @@ useEffect(() => {
                     </li>
 
                     <li className="nav-link">
-                        <a href="#">
+                        <Link to="../cityhotels">
                             <i class='bx bxs-city icon' ></i>
                             <span className="text nav-text">All cities</span>
-                        </a>
+                        </Link>
                     </li>
 
                     <li className="nav-link">
-                        <a href="#">
+                        <Link to="../cityhotels">
                         <i class='bx bx-building icon'></i>
                             <span className="text nav-text">All roomtypes</span>
-                        </a>
+                        </Link>
                     </li>
 
                     <li className="nav-link">

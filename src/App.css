@@ -4,22 +4,46 @@ background-image: url("homebg.png") ;
 background-repeat: no-repeat;
 height: 92vh;
 background-size: 100%;
+border-radius: 5%;
+margin: 10px;
+text-align: center;
+font-size: 5vw;
 }
 .features{
     padding: 5px;
     height: fit-content;
-    width: 250px;
-    background-color: rgba(0, 0, 0, 0.335);
+    width: 20%;
+    background-color: rgb(245, 229, 229);
+    padding: 5px;
+    border-radius: 2%;
+    font-size: 1.4vw;
+    position: relative;
+    top: -12vw;
+}
+@media only screen and (max-width:1350px){
+    #homebg{
+        height:40vw;
+        /* height: var(--homewidth); */
+    }
+    .features{
+        top: 0;
+    }
+    
+}
+@media only screen and (max-width:750px){
+    #homebg{
+        height:300px;
+        /* height: var(--homewidth); */
+    }
+    
+}
+
+#featuretext{
+    background-color: rgba(44, 28, 28, 0.402);
     padding: 5px;
     border-radius: 2%;
 }
-.city{
-    background-image: url("homebg.png");
-    height: 250px;
-    background-size: 100%;
-    border: 3px solid var(--text-color);
-    border-radius: 3%;
-}
+
 
 /* my code */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -69,7 +93,7 @@ body.dark{
 
 /* ===== Sidebar ===== */
 .sidebar{
-    --slidebar_width:290px;
+    --slidebar_width:280px;
 }
  .sidebar{
     position: fixed;
@@ -83,7 +107,7 @@ body.dark{
     z-index: 100;  
 }
 .sidebar.close{
-   --width: 88px;
+   --width: 80px;
 }
 .sidebar.close{
     width:var(--width) ;
@@ -402,19 +426,41 @@ body.dark .home .text{
   }
 
  /* my code end here RKS*/
-.cityname{
-    height: 30%;
-    color: #00faff;
-    text-align: center;
-    font-size: 1.2em;
-
+ .city{
+    height: auto;
+    border: 3px solid var(--text-color);
+    border-radius: 3%;
+    background-color: #757575;
+    overflow-x: hidden;
 }
-.citydetails{
-    position:relative;
-    left: 60%;
-    height: 100%;
-    background-color: #18191ac7;
-    width: 40%;
-    border-radius: 2%;
-    box-shadow: 1px 1px 5px 8px #18191a4f;
+.citynamesp{
+    
+    color: #eaf3f4;
+    text-align: center;
+    font-size: 100%;
+    width: fit-content;
+}
+.citynamebox{
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+    background-color: #0b162096;
+    border-radius: 4%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-shadow: 2px 3px 4px 5px #5048588a;
+}
+.city img{
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 4%;
+}
+.cityname{
+    color: #eaf3f4;
+    text-align: center;
+    font-size: 100%;
+
 }
