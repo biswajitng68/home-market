@@ -473,10 +473,13 @@ body.dark .home .text{
 
 .profile-page {
     align-items: center;
-    margin: 20px;
+    margin: auto;
     background-color: white;
-    border: 2px solid black;
+    background-image: linear-gradient(20deg,#00cdd4,violet);
+    padding: 2%;
     border-radius: 4%;
+    max-width: 500px;
+  
   }
   
   .profile-picture {
@@ -493,13 +496,17 @@ body.dark .home .text{
     object-fit: cover;
   }
   
-  .profile-info h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .profile-info p {
-    font-size: 18px;
-    color: #666;
-  }
-  
+.profile{
+    padding: 2%;
+}
+.profilevars{
+    font-size: 1.2em;
+    margin: 3%;
+    border: 1px solid black;
+    padding: 2%;
+    background-image: linear-gradient(50deg, #fd89fcba, #00f9f9cc);
+    box-shadow: 1px 2px 1px 1px #0a0f0e91;
+}
+.profilevals{
+    font-weight: 500;
+}
