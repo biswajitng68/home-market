@@ -9,6 +9,9 @@ margin: 10px;
 text-align: center;
 font-size: 5vw;
 }
+.dark #homebg{
+    opacity: 0.85;
+}
 .features{
     padding: 5px;
     height: fit-content;
@@ -458,9 +461,45 @@ body.dark .home .text{
     object-fit: cover;
     border-radius: 4%;
 }
+.dark .city img{
+    opacity: 0.85;
+}
 .cityname{
     color: #eaf3f4;
     text-align: center;
     font-size: 100%;
 
 }
+
+.profile-page {
+    align-items: center;
+    margin: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 4%;
+  }
+  
+  .profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:auto;
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-info p {
+    font-size: 18px;
+    color: #666;
+  }
+  

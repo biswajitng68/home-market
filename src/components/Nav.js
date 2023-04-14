@@ -74,10 +74,10 @@ useEffect(() => {
                     </li>
 
                     <li className="nav-link">
-                        <a href="#">
+                        <Link to="../genprofile">
                         <i class='bx bx-user icon'></i>
                             <span className="text nav-text">Profile</span>
-                        </a>
+                        </Link>
                     </li>
 
                     <li className="nav-link">
