@@ -510,3 +510,51 @@ body.dark .home .text{
 .profilevals{
     font-weight: 500;
 }
+
+.hotelpage{
+    padding: 2%;
+    margin: 0;
+}
+.dark .hotelpage{
+    opacity: 0.95;
+}
+.hotelimg img{
+    height: auto;
+    width: 100%;
+    border-radius: 3%;
+}
+
+.hoteldetails{
+    background-color: #00cdd4;
+    padding: 2%;
+    border-radius: 2%;
+}
+.hoteldetailtext{
+    padding: 2%;
+}
+.ownerdetail{
+    border: 1.5px solid black;
+    background-image: linear-gradient(120deg, #000302,#00e3ff);
+    color: white;
+}
+.bookbutton{
+    background-image: linear-gradient(20deg, #09ffef,#e18a8a);
+    box-shadow: 2px 2px 3px 2px #3c2222;
+}
+@media(max-width:768px){
+    .hotelpage{
+        padding: 0px;
+        margin: 0px;
+    }
+    .hotelimg{
+        padding: unset;
+    }
+    .hotelimg img{
+        border-radius: 2% 2% 0 0;
+    }
+    .hoteldetails{
+        position: relative;
+        top: -15px;
+        border-radius: 3% 3% 0 0;
+    }
+}
