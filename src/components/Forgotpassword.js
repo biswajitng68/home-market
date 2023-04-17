@@ -1,6 +1,6 @@
 import '../App.css';
 import {Outlet, Link ,useNavigate} from "react-router-dom";
-export default function Login(){
+export default function Forgotpassword(){
     const navigate=useNavigate();
     var lst={
         display:"flex",
@@ -18,7 +18,7 @@ export default function Login(){
     return(
         <>
         <section className="home">
-        <div className="text">Log in</div>
+        <div className="text">Email verify</div>
     
         <div><form >
         <div  style={lst}>
@@ -29,11 +29,6 @@ export default function Login(){
         <div className="form-floating mb-3">
   <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name='email' />
   <label htmlFor="floatingInput">Email address</label>
-</div>
-<div className="form-floating">
-  <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name='password' />
-  <label htmlFor="floatingPassword">Password</label>
-  <p onClick={()=>{navigate("../forgotpass")}}>Forget Password?</p>
 </div>
 <div className='d-grid gap-2 my-4'>
 <button className='btn  btn-primary'>Submit</button>

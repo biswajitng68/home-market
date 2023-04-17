@@ -1,7 +1,9 @@
 import '../App.css';
+import {useState} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 export default function Signup(){
     const navigate=useNavigate();
+    const [credentials, setCredentials] = useState({user:"",name:"", mobile:"", email: "", password: ""}) 
     var lst={
         display:"flex",
         justifyContent:"center",
@@ -15,31 +17,72 @@ export default function Signup(){
         textAlign:"center",
         padding:4
     };
+
+    //signup api call
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch("https://room-rover-app-backend-mern.onrender.com/register", {
+            method: 'POST',
+            crossDomain: true,
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: "application/json",
+                 "Access-Control-Allow-Origin": "*",
+
+            },
+            
+            body: JSON.stringify({userSellerType:credentials.user,name:credentials.name, email:credentials.email, mobile:credentials.mobile, password:credentials.password})
+        });
+        const json = await response.json()
+        if (json.success){
+            // Save the auth token and redirect
+            localStorage.setItem('emailtoken', json.token); 
+            alert(json.message);
+            navigate("../otp")
+            
+
+        }
+        else{
+            alert(json.message||json.error);
+        }
+    }
+
+    const onchange = (e)=>{
+        setCredentials({...credentials, [e.target.name]: e.target.value})
+    }
+
     return(
         <>
         <section className="home">
         <div className="text">Sign up</div>
     
-        <div><form >
+        <div><form onSubmit={handleSubmit}>
         <div  style={lst}>
-            <div className="wrap" style={nst}>
+            <div className="wrap mx-4" style={nst}>
                 {/* <h2  style={st}>Sign up</h2> */}
             <fieldset>
             <div className="form-floating mb-3">
-  <input type='text' className="form-control" id="floatingInput"  name='name'placeholder="name" required />
-  <label htmlFor="floatingInput">Name</label>
+            <select class="form-select" aria-label="Default select example" onChange={onchange} name='user' value={credentials.user} id='floatinginput0'>
+                <option value="user">General User</option>
+                <option value="seller">Seller</option>
+            </select>
+            <label htmlFor="floatingInput0">User Type</label>
+            </div>
+            <div className="form-floating mb-3">
+  <input type='text' className="form-control" id="floatingInput1" onChange={onchange} name='name' value={credentials.name} placeholder="name" required />
+  <label htmlFor="floatingInput1">Name</label>
 </div>
 <div className="form-floating mb-3">
-  <input type='number' className="form-control" id="floatingInput"  name='mobile'placeholder="mobile" required />
-  <label htmlFor="floatingInput">Mobile</label>
+  <input type='number' className="form-control" id="floatingInput2" onChange={onchange}  name='mobile' value={credentials.mobile} placeholder="mobile" required />
+  <label htmlFor="floatingInput2">Mobile</label>
 </div>
         <div className="form-floating mb-3">
-  <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name='email' required/>
-  <label htmlFor="floatingInput">Email address</label>
+  <input type="email" className="form-control" id="floatingInput3" onChange={onchange} placeholder="name@example.com" name='email' value={credentials.email} required/>
+  <label htmlFor="floatingInput3">Email address</label>
 </div>
 <div className="form-floating">
-  <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name='password'pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
-  <label htmlFor="floatingPassword">Password</label>
+  <input type="password" className="form-control" id="floatingPassword4" onChange={onchange} placeholder="Password" name='password' value={credentials.password} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
+  <label htmlFor="floatingPassword4">Password</label>
 </div>
 <div className='d-grid gap-2 my-4'>
 <button className='btn  btn-primary'>Submit</button>
