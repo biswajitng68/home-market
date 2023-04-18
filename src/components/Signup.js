@@ -3,7 +3,7 @@ import {useState} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 export default function Signup(){
     const navigate=useNavigate();
-    const [credentials, setCredentials] = useState({user:"",name:"", mobile:"", email: "", password: ""}) 
+    const [credentials, setCredentials] = useState({user:"user",name:"", mobile:"", email: "", password: ""}) 
     var lst={
         display:"flex",
         justifyContent:"center",
@@ -21,7 +21,8 @@ export default function Signup(){
     //signup api call
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("https://room-rover-app-backend-mern.onrender.com/register", {
+        console.log(credentials);
+        const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/register", {
             method: 'POST',
             crossDomain: true,
             headers: {
@@ -37,13 +38,14 @@ export default function Signup(){
         if (json.success){
             // Save the auth token and redirect
             localStorage.setItem('emailtoken', json.token); 
+            localStorage.setItem("usertype",credentials.user);
             alert(json.message);
             navigate("../otp")
             
 
         }
         else{
-            alert(json.message||json.error);
+            alert(json.error);
         }
     }
 
