@@ -3,6 +3,8 @@ import {useState} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 export default function Signup(){
     const navigate=useNavigate();
+    const [alert,setalert]=useState();
+    var [alertmessage,setalm]=useState("Here is an alert");
     const [credentials, setCredentials] = useState({user:"user",name:"", mobile:"", email: "", password: ""}) 
     var lst={
         display:"flex",
@@ -39,14 +41,19 @@ export default function Signup(){
             // Save the auth token and redirect
             localStorage.setItem('emailtoken', json.token); 
             localStorage.setItem("usertype",credentials.user);
-            alert(json.message);
+            setalm(json.message)
+            setalert(true);
             navigate("../otp")
             
 
         }
         else{
-            alert(json.error);
+            setalm(json.error)
+            setalert(true);
         }
+        setTimeout(() => {
+            setalert(false);
+        }, 10000);
     }
 
     const onchange = (e)=>{
@@ -57,7 +64,10 @@ export default function Signup(){
         <>
         <section className="home">
         <div className="text">Sign up</div>
-    
+        {alert==true&&
+        <div className='d-flex justify-content-end aalert-container'>
+            <div className='alert rounded'><span className='alerttext'><i className='bx bx-bell alerttext mx-1'></i>{alertmessage}</span></div>
+        </div>}
         <div><form onSubmit={handleSubmit}>
         <div  style={lst}>
             <div className="wrap mx-4" style={nst}>

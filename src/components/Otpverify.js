@@ -3,6 +3,8 @@ import {useEffect, useState} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 export default function Otpverify(){
     const navigate=useNavigate();
+    const [alert,setalert]=useState();
+    var [alertmessage,setalm]=useState("Here is an alert");
     const [otpval,setotpval]=useState("");
     var lst={
         display:"flex",
@@ -26,7 +28,7 @@ useEffect(()=>{
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/register", {
+    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/verifyOTP", {
         method: 'POST',
         crossDomain: true,
         headers: {
@@ -36,28 +38,35 @@ const handleSubmit = async (e) => {
 
         },
         
-        // body: JSON.stringify({userSellerType:credentials.user,name:credentials.name, email:credentials.email, mobile:credentials.mobile, password:credentials.password})
+        body: JSON.stringify({userSellerType:localStorage.getItem("usertype"), token:localStorage.getItem("emailtoken"), otp:otpval})
     });
     const json = await response.json()
     if (json.success){
         // Save the auth token and redirect
         localStorage.setItem('emailtoken', json.token); 
-        alert(json.message);
+        setalm(json.message);
         navigate("../otp")
         
 
     }
     else{
-        alert(json.message||json.error);
+        setalm(json.error);
     }
+    setalert(true);
+    setTimeout(() => {
+        setalert(false);
+    }, 10000);
 }
 
     return(
         <>
         <section className="home">
         <div className="text">Verify OTP</div>
-    
-        <div><form >
+        {alert==true&&
+        <div className='d-flex justify-content-end aalert-container'>
+            <div className='alert rounded'><span className='alerttext'><i className='bx bx-bell alerttext mx-1'></i>{alertmessage}</span></div>
+        </div>}
+        <div><form onSubmit={handleSubmit}>
         <div  style={lst}>
             <div className="wrap mx-4" style={nst}>
                 {/* <h2  style={st}>Log in</h2> */}
