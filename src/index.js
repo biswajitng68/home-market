@@ -15,6 +15,9 @@ import Nav from './components/Nav';
 import Selhome from './components/Selhome';
 import Selnav from './components/Selnav';
 import Citywisehotel from './components/Citywisehotel';
+import Otpverify from './components/Otpverify';
+import Forgotpassword from './components/Forgotpassword';
+import Changepass from './components/Changepass';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +34,9 @@ root.render(
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup/>} />
         <Route path="cityhotels" element={<Citywisehotel/>} />
+        <Route path="otp" element={<Otpverify/>} />
+        <Route path="forgotpass" element={<Forgotpassword/>} />
+        <Route path="changepass" element={<Changepass/>} />
         </Route>
         <Route element={<Selnav/>}>
         <Route path="selprofile" element={<Selprofile />} />
