@@ -644,3 +644,16 @@ body.dark .home .text{
 
 }
 
+.table{
+    width: 80%;
+    border-radius: 8px;
+    position: absolute;
+    margin: 20px;
+    color: white;
+    background-color: #94a2e4;
+}
+tbody{
+    background-color: #4F5984;
+}
+
+
