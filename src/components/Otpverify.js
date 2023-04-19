@@ -45,7 +45,7 @@ const handleSubmit = async (e) => {
         // Save the auth token and redirect
         localStorage.setItem('emailtoken', json.token); 
         setalm(json.message);
-        navigate("../otp")
+        
         
 
     }
@@ -55,6 +55,8 @@ const handleSubmit = async (e) => {
     setalert(true);
     setTimeout(() => {
         setalert(false);
+        if(json.success)
+        navigate("../login")
     }, 10000);
 }
 
@@ -63,8 +65,8 @@ const handleSubmit = async (e) => {
         <section className="home">
         <div className="text">Verify OTP</div>
         {alert==true&&
-        <div className='d-flex justify-content-end aalert-container'>
-            <div className='alert rounded'><span className='alerttext'><i className='bx bx-bell alerttext mx-1'></i>{alertmessage}</span></div>
+        <div className='d-flex justify-content-end alert-container'>
+            <div className='d-flex alert rounded'><i className='bx bx-bell  mx-1'></i><span className='alerttext'>{alertmessage}</span></div>
         </div>}
         <div><form onSubmit={handleSubmit}>
         <div  style={lst}>

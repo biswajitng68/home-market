@@ -43,7 +43,7 @@ export default function Signup(){
             localStorage.setItem("usertype",credentials.user);
             setalm(json.message)
             setalert(true);
-            navigate("../otp")
+            
             
 
         }
@@ -53,6 +53,8 @@ export default function Signup(){
         }
         setTimeout(() => {
             setalert(false);
+            if(json.success)
+            navigate("../otp")
         }, 10000);
     }
 
@@ -66,7 +68,7 @@ export default function Signup(){
         <div className="text">Sign up</div>
         {alert==true&&
         <div className='d-flex justify-content-end aalert-container'>
-            <div className='alert rounded'><span className='alerttext'><i className='bx bx-bell alerttext mx-1'></i>{alertmessage}</span></div>
+            <div className='d-flex alert rounded'><i className='bx bx-bell  mx-1'></i><span className='alerttext'>{alertmessage}</span></div>
         </div>}
         <div><form onSubmit={handleSubmit}>
         <div  style={lst}>
