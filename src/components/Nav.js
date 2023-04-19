@@ -12,12 +12,10 @@ useEffect(() => {
 
 },[isOpen]);
 
-
+console.log(localStorage.getItem("authtoken"));
 
     return(
         <>
-        
-
         <nav className={`sidebar ${close?"close":""}  `}>
         <header>
             <div className="image-text">
@@ -91,12 +89,18 @@ useEffect(() => {
             </div>
 
             <div className="bottom-content">
-                <li className="">
+                
+                {!(localStorage.getItem("authtoken"))?<li className="">
                     <Link to="../login">
                         <i className='bx bx-log-in icon' ></i>
                         <span className="text nav-text">Login</span>
                     </Link>
-                </li>
+                </li>:<li className="" onClick={()=>{localStorage.clear()}}>
+                    <Link to="../">
+                        <i className='bx bx-log-out icon' ></i>
+                        <span className="text nav-text">Logout</span>
+                    </Link>
+                </li>}
 
                 <li className="mode">
                     <div className="sun-moon">
@@ -116,9 +120,6 @@ useEffect(() => {
         </div>
 
     </nav>
-   
-
-
         <Outlet/>
         </>
     )

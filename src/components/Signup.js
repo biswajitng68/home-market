@@ -1,5 +1,5 @@
 import '../App.css';
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 export default function Signup(){
     const navigate=useNavigate();
@@ -19,6 +19,10 @@ export default function Signup(){
         textAlign:"center",
         padding:4
     };
+    useEffect(()=>{
+        if(localStorage.getItem("authtoken"))
+        navigate("../")
+    },[])
 
     //signup api call
     const handleSubmit = async (e) => {

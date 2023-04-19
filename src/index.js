@@ -25,18 +25,16 @@ root.render(
 <BrowserRouter>
     <Routes>
         <Route element={<Nav/>}>
-          
-        <Route path="/" element={<Home />} />
-        
-        <Route path="genprofile" element={<Genprofile />} />
-        <Route path="hotel" element={<Hotel />} />
-        <Route path="hotellist" element={<Hotellist />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup/>} />
-        <Route path="cityhotels" element={<Citywisehotel/>} />
-        <Route path="otp" element={<Otpverify/>} />
-        <Route path="forgotpass" element={<Forgotpassword/>} />
-        <Route path="changepass" element={<Changepass/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="genprofile" element={<Genprofile />} />
+          <Route path="hotel" element={<Hotel />} />
+          <Route path="hotellist" element={<Hotellist />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup/>} />
+          <Route path="cityhotels" element={<Citywisehotel/>} />
+          <Route path="otp" element={<Otpverify/>} />
+          <Route path="forgotpass" element={<Forgotpassword/>} />
+          <Route path="changepass" element={<Changepass/>} />
         </Route>
         <Route element={<Selnav/>}>
         <Route path="selprofile" element={<Selprofile />} />

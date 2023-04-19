@@ -42,11 +42,10 @@ const handleSubmit = async (e) => {
     });
     const json = await response.json()
     if (json.success){
-        // Save the auth token and redirect
-        localStorage.setItem('emailtoken', json.token); 
+        // Save the auth token and redirect 
         setalm(json.message);
         
-        
+        localStorage.clear();
 
     }
     else{
