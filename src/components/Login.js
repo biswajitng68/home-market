@@ -1,8 +1,11 @@
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useContext } from 'react';
 import '../App.css';
 import {Outlet, Link ,useNavigate} from "react-router-dom";
+import AuthContext from '../context/authContext';
+
 export default function Login(){
     const navigate=useNavigate();
+    const auth =useContext(AuthContext);
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
     const [credentials, setCredentials] = useState({user:"user", email: "", password: ""}) 
@@ -45,6 +48,7 @@ useEffect(()=>{
         if (json.success){
             // Save the auth token and redirect
             localStorage.setItem('authtoken', json.token); 
+            auth.setlogin(true);
             // localStorage.setItem("usertype",credentials.user);
             setalm(json.message)
             setalert(true);
@@ -59,7 +63,7 @@ useEffect(()=>{
         setTimeout(() => {
             setalert(false);
             if(json.success)
-            navigate("../home")
+            navigate("../")
         }, 10000);
     }
 

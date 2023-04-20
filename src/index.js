@@ -18,11 +18,13 @@ import Citywisehotel from './components/Citywisehotel';
 import Otpverify from './components/Otpverify';
 import Forgotpassword from './components/Forgotpassword';
 import Changepass from './components/Changepass';
+import Authstate from './context/Authstate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 <BrowserRouter>
+<Authstate>
     <Routes>
         <Route element={<Nav/>}>
           <Route path="/" element={<Home />} />
@@ -42,6 +44,7 @@ root.render(
         <Route path="selhome" element={<Selhome />} />
         </Route>
     </Routes>
+    </Authstate>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,8 +1,10 @@
 import {Outlet,Link} from 'react-router-dom';
 import '../App.css';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
+import AuthContext from '../context/authContext';
+
 export default function Nav(){
- 
+ const auth=useContext(AuthContext);
  const [mode,setMode]=useState("Light");
 const [close,setClose]=useState(false);
 const [isOpen, setIsOpen] = useState(false);
@@ -71,12 +73,12 @@ console.log(localStorage.getItem("authtoken"));
                         </Link>
                     </li>
 
-                    <li className="nav-link">
+                    {auth.login&&<li className="nav-link">
                         <Link to="../genprofile">
                         <i class='bx bx-user icon'></i>
                             <span className="text nav-text">Profile</span>
                         </Link>
-                    </li>
+                    </li>}
 
                     <li className="nav-link">
                         <a href="#">
@@ -90,12 +92,12 @@ console.log(localStorage.getItem("authtoken"));
 
             <div className="bottom-content">
                 
-                {!(localStorage.getItem("authtoken"))?<li className="">
+                {!(auth.login)?<li className="">
                     <Link to="../login">
                         <i className='bx bx-log-in icon' ></i>
                         <span className="text nav-text">Login</span>
                     </Link>
-                </li>:<li className="" onClick={()=>{localStorage.clear()}}>
+                </li>:<li className="" onClick={()=>{localStorage.removeItem("authtoken");auth.setlogin(false)}}>
                     <Link to="../">
                         <i className='bx bx-log-out icon' ></i>
                         <span className="text nav-text">Logout</span>

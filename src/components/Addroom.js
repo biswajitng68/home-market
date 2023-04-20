@@ -29,7 +29,7 @@ export default function Addroom() {
 
             },
             
-            body: JSON.stringify({token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvdG9uMTIxNzVAZ21haWwuY29tIiwiaWF0IjoxNjgxOTgzNzg4fQ.toNzhN9OUFygik88R2LdVVRcmIwuU_ucs4-2WudZxu0",name:roominfo.name, city:roominfo.city,address:roominfo.address, mobile:roominfo.mobile, buildingType:roominfo.type,description:roominfo.roomdes,price:Number(roominfo.price),roomCount:Number(counter)})
+            body: JSON.stringify({token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNhOWYyMzU1NTQ0YTM2NDU5MzNhMGMiLCJpYXQiOjE2ODE5ODkxNDB9.ndu40VWG9LbIW2YUEHqhOqKLvyMfvky31YDYh04JJps",name:roominfo.name, city:roominfo.city,address:roominfo.address, mobile:roominfo.mobile, buildingType:roominfo.type,description:roominfo.roomdes,price:Number(roominfo.price),roomCount:Number(counter)})
         });
         const json = await response.json()
         if (json.success){
@@ -46,6 +46,10 @@ export default function Addroom() {
            setalm(json.error)
            setalert(true);
         }
+
+        setTimeout(() => {
+            setalert(false);
+        }, 10000);
          
     }
     const onchange = (e)=>{
@@ -55,8 +59,13 @@ export default function Addroom() {
 
     return (
         <>
-            <div>
-
+        <section className="home">
+        <div className="text">Add room</div>
+        {alert==true&&
+        <div className='d-flex justify-content-end aalert-container'>
+            <div className='d-flex alert rounded'><i className='bx bx-bell  mx-1'></i><span className='alerttext'>{alertmessage}</span></div>
+        </div>}
+            <div> 
                 <div id='addroombg'>
                     <div className="p-5">
                         <div className="room-details my-3">
@@ -111,6 +120,7 @@ export default function Addroom() {
                 </div>
 
             </div>
+            </section>
         </>
     )
 }
