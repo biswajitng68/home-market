@@ -47,8 +47,12 @@ useEffect(()=>{
         const json = await response.json()
         if (json.success){
             // Save the auth token and redirect
-            localStorage.setItem('authtoken', json.token); 
-            auth.setlogin(true);
+            if(credentials.user==="user"){
+            localStorage.setItem('userauthtoken', json.token); 
+            auth.setuserlogin(true);}
+            else if(credentials.user==="seller"){
+            localStorage.setItem('sellerauthtoken', json.token); 
+            auth.setsellerlogin(true);}
             // localStorage.setItem("usertype",credentials.user);
             setalm(json.message)
             setalert(true);
@@ -63,7 +67,13 @@ useEffect(()=>{
         setTimeout(() => {
             setalert(false);
             if(json.success)
-            navigate("../")
+            {
+                if(credentials.user==="user")
+                navigate("../")
+                else
+                navigate("../selhome")
+            }
+            
         }, 10000);
     }
 

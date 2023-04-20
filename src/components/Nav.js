@@ -73,7 +73,7 @@ console.log(localStorage.getItem("authtoken"));
                         </Link>
                     </li>
 
-                    {auth.login&&<li className="nav-link">
+                    {auth.userlogin&&<li className="nav-link">
                         <Link to="../genprofile">
                         <i class='bx bx-user icon'></i>
                             <span className="text nav-text">Profile</span>
@@ -92,12 +92,12 @@ console.log(localStorage.getItem("authtoken"));
 
             <div className="bottom-content">
                 
-                {!(auth.login)?<li className="">
+                {!(auth.userlogin)?<li className="">
                     <Link to="../login">
                         <i className='bx bx-log-in icon' ></i>
                         <span className="text nav-text">Login</span>
                     </Link>
-                </li>:<li className="" onClick={()=>{localStorage.removeItem("authtoken");auth.setlogin(false)}}>
+                </li>:<li className="" onClick={()=>{localStorage.removeItem("authtoken");auth.setuserlogin(false)}}>
                     <Link to="../">
                         <i className='bx bx-log-out icon' ></i>
                         <span className="text nav-text">Logout</span>

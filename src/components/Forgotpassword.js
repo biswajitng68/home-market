@@ -1,8 +1,10 @@
 import '../App.css';
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
+import AuthContext from '../context/authContext';
 export default function Forgotpassword(){
     const navigate=useNavigate();
+    const auth=useContext(AuthContext);
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
     const [credentials, setCredentials] = useState({user:"user", email: ""}) 
@@ -31,7 +33,7 @@ export default function Forgotpassword(){
             e.preventDefault();
             console.log(credentials);
             const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/generateOTP", {
-                method: 'POST',
+                method: 'PUT',
                 crossDomain: true,
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,6 +49,7 @@ export default function Forgotpassword(){
                 // Save the auth token and redirect
                 localStorage.setItem('emailtoken', json.token); 
                 localStorage.setItem("usertype",credentials.user);
+                auth.setforgotpass(true);
                 setalm(json.message)
                 setalert(true);
                 
@@ -60,7 +63,7 @@ export default function Forgotpassword(){
             setTimeout(() => {
                 setalert(false);
                 if(json.success)
-                navigate("../")
+                navigate("../otp")
             }, 10000);
         }
     

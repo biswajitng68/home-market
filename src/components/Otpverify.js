@@ -1,8 +1,10 @@
 import '../App.css';
-import {useEffect, useState} from 'react'
+import {useEffect, useState,useContext} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
+import AuthContext from '../context/authContext';
 export default function Otpverify(){
     const navigate=useNavigate();
+    const auth =useContext(AuthContext);
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
     const [otpval,setotpval]=useState("");
@@ -44,7 +46,7 @@ const handleSubmit = async (e) => {
     if (json.success){
         // Save the auth token and redirect 
         setalm(json.message);
-        
+        if(!auth.forgotpass)
         localStorage.clear();
 
     }
@@ -54,8 +56,15 @@ const handleSubmit = async (e) => {
     setalert(true);
     setTimeout(() => {
         setalert(false);
-        if(json.success)
-        navigate("../login")
+        if(json.success){
+            if(auth.forgotpass){
+            navigate("../changepass");
+            auth.setforgotpass(false);
+            }
+            else
+            navigate("../login");
+        }
+        
     }, 10000);
 }
 
