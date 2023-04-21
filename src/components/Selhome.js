@@ -1,6 +1,11 @@
-
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 export default function Selhome() {
-
+    const navigate=useNavigate();
+    useEffect(()=>{
+        if(!localStorage.getItem("sellerauthtoken"))
+        navigate("../login")
+    },[])
     return (
         <>
             <section className="home">

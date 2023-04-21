@@ -2,14 +2,14 @@ import {Outlet} from 'react-router-dom'
 import "../App.css"
 import boximg from '../homebg.png'
 import { useEffect, useState } from 'react'
-export default function Citywisehotel(){
-    const [citydetail,setcitydetail]=useState();
+export default function Typewisehotel(){
+    const [typedetail,settypedetail]=useState();
 useEffect(()=>{
 handleSubmit();
 },[])
 
 const handleSubmit = async () => {
-    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/allCities_roomCount_minCost", {
+    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/allBuildingTypes_roomCount_minCost", {
         method: 'GET',
         crossDomain: true,
         headers: {
@@ -24,7 +24,7 @@ const handleSubmit = async () => {
     const json = await response.json()
     if (json.success){
         console.log(json.data);
-        setcitydetail(json.data);
+        settypedetail(json.data);
     }
     else{
         alert(json.message);
@@ -33,23 +33,23 @@ const handleSubmit = async () => {
     return(
         <>
             <section className="home">
-        <div className="text">Cities</div>
+        <div className="text">Roomtypes</div>
         <div className='container-fluid'>
             <div className='row hotelcontainer'>
                     {
                     (()=>{
                        let rows=[];
-                       console.log(citydetail);
-                       if(citydetail){
-                        for(let i=0;i<citydetail.length;i++){
+                       console.log(typedetail);
+                       if(typedetail){
+                        for(let i=0;i<typedetail.length;i++){
                         rows.push(
                         <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2'><div  className='city p-2'>
                 <img src={boximg}></img>
                     <div className='citydetails'>
-                    <div className='citynamebox'><p className='citynamesp col'>City: {citydetail[i]._id}</p></div>
+                    <div className='citynamebox'><p className='citynamesp col'>Type: {typedetail[i]._id}</p></div>
                     <div className='row'>
-                    <p className='cityname col'>Rooms: {citydetail[i].roomCount}</p>
-                    <p className='cityname col'>Min-cost: {citydetail[i].minCost}Rs</p>
+                    <p className='cityname col'>Rooms: {typedetail[i].roomCount}</p>
+                    <p className='cityname col'>Min-cost: {typedetail[i].minCost}Rs</p>
                     </div>
                     </div></div></div>);}}
                     return rows;

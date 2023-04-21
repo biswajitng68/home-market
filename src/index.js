@@ -19,6 +19,7 @@ import Otpverify from './components/Otpverify';
 import Forgotpassword from './components/Forgotpassword';
 import Changepass from './components/Changepass';
 import Authstate from './context/Authstate';
+import Typewisehotel from './components/Typewisehotel';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -34,6 +35,7 @@ root.render(
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup/>} />
           <Route path="cityhotels" element={<Citywisehotel/>} />
+          <Route path="typehotels" element={<Typewisehotel/>} />
           <Route path="otp" element={<Otpverify/>} />
           <Route path="forgotpass" element={<Forgotpassword/>} />
           <Route path="changepass" element={<Changepass/>} />

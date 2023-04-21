@@ -1,8 +1,9 @@
 import {Outlet,Link} from 'react-router-dom';
 import '../App.css';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
+import AuthContext from '../context/authContext';
 export default function Selnav(){
- 
+ const auth=useContext(AuthContext);
  const [mode,setMode]=useState("Light");
 const [close,setClose]=useState(false);
 const [isOpen, setIsOpen] = useState(false);
@@ -88,10 +89,10 @@ useEffect(() => {
             </div>
 
             <div className="bottom-content">
-                <li className="">
+                <li className="" onClick={()=>{localStorage.clear();auth.setsellerlogin(false);}}>
                     <Link to="../login">
                         <i className='bx bx-log-in icon' ></i>
-                        <span className="text nav-text">Login</span>
+                        <span className="text nav-text">Logout</span>
                     </Link>
                 </li>
 

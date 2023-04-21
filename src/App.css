@@ -429,6 +429,9 @@ body.dark .home .text{
   }
 
  /* my code end here RKS*/
+ .hotelcontainer{
+    margin: 0px!important;
+ }
  .city{
     height: auto;
     border: 3px solid var(--text-color);

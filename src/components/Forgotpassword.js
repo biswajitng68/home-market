@@ -23,8 +23,10 @@ export default function Forgotpassword(){
     };
 
     useEffect(()=>{
-        if(localStorage.getItem("authtoken"))
+        if(localStorage.getItem("userauthtoken"))
         navigate("../")
+        if(localStorage.getItem("sellerauthtoken"))
+        navigate("../selhome")
     },[])
     
         //Forgotpassword api call

@@ -23,8 +23,10 @@ export default function Login(){
         padding:4
     };
 useEffect(()=>{
-    if(localStorage.getItem("authtoken"))
+    if(localStorage.getItem("userauthtoken"))
     navigate("../")
+    if(localStorage.getItem("sellerauthtoken"))
+    navigate("../selhome")
 },[])
 
     //Login api call
@@ -47,6 +49,7 @@ useEffect(()=>{
         const json = await response.json()
         if (json.success){
             // Save the auth token and redirect
+            localStorage.clear();
             if(credentials.user==="user"){
             localStorage.setItem('userauthtoken', json.token); 
             auth.setuserlogin(true);}

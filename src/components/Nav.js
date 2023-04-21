@@ -53,10 +53,10 @@ console.log(localStorage.getItem("authtoken"));
                     </li>
 
                     <li className="nav-link">
-                        <a href="#">
+                        <Link to="../hotellist">
                         <i class='bx bxs-category icon'></i>
                             <span className="text nav-text">All rooms</span>
-                        </a>
+                        </Link>
                     </li>
 
                     <li className="nav-link">
@@ -67,7 +67,7 @@ console.log(localStorage.getItem("authtoken"));
                     </li>
 
                     <li className="nav-link">
-                        <Link to="../cityhotels">
+                        <Link to="../typehotels">
                         <i class='bx bx-building icon'></i>
                             <span className="text nav-text">All roomtypes</span>
                         </Link>
@@ -97,7 +97,7 @@ console.log(localStorage.getItem("authtoken"));
                         <i className='bx bx-log-in icon' ></i>
                         <span className="text nav-text">Login</span>
                     </Link>
-                </li>:<li className="" onClick={()=>{localStorage.removeItem("authtoken");auth.setuserlogin(false)}}>
+                </li>:<li className="" onClick={()=>{localStorage.removeItem("userauthtoken");auth.setuserlogin(false)}}>
                     <Link to="../">
                         <i className='bx bx-log-out icon' ></i>
                         <span className="text nav-text">Logout</span>
