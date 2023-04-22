@@ -1,16 +1,20 @@
 import {Outlet} from 'react-router-dom'
 import "../App.css"
 import boximg from '../homebg.png'
-import { useEffect, useState } from 'react'
+import { useEffect, useState ,useContext} from 'react'
+import AuthContext from '../context/authContext'
 export default function Hotellist(){
+    const auth=useContext(AuthContext);
     const [roomdetail,setroomdetail]=useState();
+    const [searchmin,setsearchmin]=useState(0);
+    const [searchmax,setsearchmax]=useState(20000);
 useEffect(()=>{
 handleSubmit();
 },[])
 
 const handleSubmit = async () => {
     const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/buildingDetails_Type_City_wise", {
-        method: 'GET',
+        method: 'POST',
         crossDomain: true,
         headers: {
             'Content-Type': 'application/json',
@@ -19,7 +23,7 @@ const handleSubmit = async () => {
 
         },
         
-        body: JSON.stringify()
+        body: JSON.stringify({city:auth.searchcity, buildingType:auth.searchtype, minCost:searchmin, maxCost:searchmax})
     });
     const json = await response.json()
     if (json.success){
@@ -35,6 +39,31 @@ const handleSubmit = async () => {
             <section className="home">
         <div className="text">All rooms</div>
         <div className='container-fluid'>
+            <div className='searchbox'>
+                <form onSubmit={(e)=>{e.preventDefault();handleSubmit()}}>
+                    <div className='row hotelcontainer'>
+            <div className="form-floating mb-3 col-md-3 col-6 p-1 ">
+                <input type='text' className="form-control" id="floatingInput1" onChange={(e)=>{auth.setsearchcity(e.target.value)}} name='name' value={auth.searchcity} placeholder="name"  />
+                <label htmlFor="floatingInput1">City</label>
+            </div>
+            <div className="form-floating mb-3 col-md-3 col-6 p-1">
+                <input type='text' className="form-control" id="floatingInput1" onChange={(e)=>{auth.setsearchtype(e.target.value)}} name='name' value={auth.searchtype} placeholder="name"  />
+                <label htmlFor="floatingInput1">Building Type</label>
+            </div>
+            <div className="form-floating mb-3 col-md-3 col-6 p-1">
+                <input type='number' className="form-control" id="floatingInput1" onChange={(e)=>{setsearchmin(parseInt(e.target.value))}} name='name' value={searchmin} placeholder="name"  />
+                <label htmlFor="floatingInput1">Minimum Price</label>
+            </div>
+            <div className="form-floating mb-3 col-md-3 col-6 p-1">
+                <input type='number' className="form-control" id="floatingInput1" onChange={(e)=>{setsearchmax(parseInt(e.target.value))}} name='name' value={searchmax} placeholder="name"  />
+                <label htmlFor="floatingInput1">Maximum Price</label>
+            </div>
+            </div>
+            <div className='d-flex justify-content-center'>
+                <button className='btn  btn-primary'>Search</button>
+            </div>
+            </form>
+            </div>
             <div className='row hotelcontainer'>
                     {
                     (()=>{
