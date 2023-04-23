@@ -34,6 +34,7 @@ useEffect(()=>{
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(credentials);
+        //http://localhost:3001 https://room-rover-app-backend-mern.onrender.com
         const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/login", {
             method: 'POST',
             crossDomain: true,
@@ -56,6 +57,7 @@ useEffect(()=>{
             else if(credentials.user==="seller"){
             localStorage.setItem('sellerauthtoken', json.token); 
             auth.setsellerlogin(true);}
+            
             // localStorage.setItem("usertype",credentials.user);
             setalm(json.message)
             setalert(true);

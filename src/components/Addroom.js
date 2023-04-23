@@ -8,6 +8,7 @@ const myComponentStyle = {
 
 
 export default function Addroom() {
+    console.log(localStorage.getItem("sellerauthtoken"));
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
     const [counter, setCounter] = useState(1);
@@ -29,7 +30,7 @@ export default function Addroom() {
 
             },
             
-            body: JSON.stringify({token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNhOWYyMzU1NTQ0YTM2NDU5MzNhMGMiLCJpYXQiOjE2ODE5ODkxNDB9.ndu40VWG9LbIW2YUEHqhOqKLvyMfvky31YDYh04JJps",name:roominfo.name, city:roominfo.city,address:roominfo.address, mobile:roominfo.mobile, buildingType:roominfo.type,description:roominfo.roomdes,price:Number(roominfo.price),roomCount:Number(counter)})
+            body: JSON.stringify({token:localStorage.getItem("sellerauthtoken"),name:roominfo.name, city:roominfo.city,address:roominfo.address, mobile:roominfo.mobile, buildingType:roominfo.type,description:roominfo.roomdes,price:Number(roominfo.price),roomCount:Number(counter)})
         });
         const json = await response.json()
         if (json.success){

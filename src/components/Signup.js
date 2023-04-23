@@ -28,6 +28,7 @@ export default function Signup(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(credentials);
+        //http://localhost:3001 https://room-rover-app-backend-mern.onrender.com
         const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/register", {
             method: 'POST',
             crossDomain: true,
