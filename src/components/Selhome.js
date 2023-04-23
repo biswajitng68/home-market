@@ -10,7 +10,7 @@ export default function Selhome() {
         
             
     }, [])
-    //--------------------------------------------------------------------------------
+    
     async function fetchcity() {
         
         const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/seller_Cities_List", {
@@ -72,8 +72,7 @@ export default function Selhome() {
     }, [sel1,sel])
 
     const handleSubmit = async () => {
-        console.log("After change sel : "+sel);
-        console.log("After change sel : "+sel1);
+        
         // http://localhost:6000  https://room-rover-app-backend-mern.onrender.com/api/seller_buildingDetails_type_City
         const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/seller_buildingDetails_type_City", {
             method: 'POST',
@@ -89,7 +88,7 @@ export default function Selhome() {
         });
         const json = await response.json()
         if (json.success) {
-            //console.log(json.data);
+           
             setDes(json.data);
         }
         else {
@@ -98,7 +97,7 @@ export default function Selhome() {
     }
     
     
-    //--------------------------------------------------------------------------------
+
     return (
         <>
             <section className="home">
@@ -135,7 +134,7 @@ export default function Selhome() {
                             {
                                 (()=>{
                                     let rows = [];
-                                   console.log(typ);
+                                  
                                     if(typ)
                                     {
                                         for(let i=0;i<typ.length;i++)
