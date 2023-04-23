@@ -658,8 +658,19 @@ body.dark .home .text{
 tbody{
     background-color: #4F5984;
 }
+
  .contain{
     margin:20px;
     
  }
+
+
+.searchbox{
+    background-color: #00f9f9cc;
+    border-radius: 2%;
+    border: 2px solid rgb(249, 255, 205);
+    padding: 10px;
+    height: 70%;
+}
+
 
