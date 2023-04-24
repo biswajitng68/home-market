@@ -1,9 +1,10 @@
-import {Outlet} from 'react-router-dom'
+import {Outlet,useNavigate} from 'react-router-dom'
 import "../App.css"
 import boximg from '../homebg.png'
 import { useEffect, useState ,useContext} from 'react'
 import AuthContext from '../context/authContext'
 export default function Hotellist(){
+    const navigate=useNavigate();
     const auth=useContext(AuthContext);
     const [roomdetail,setroomdetail]=useState();
     const [searchmin,setsearchmin]=useState(0);
@@ -72,7 +73,7 @@ const handleSubmit = async () => {
                        if(roomdetail){
                         for(let i=0;i<roomdetail.length;i++){
                         rows.push(
-                        <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2'><div  className='city p-2'>
+                        <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2'><div  className='city p-2' onClick={()=>{navigate("../"+roomdetail[i]._id)}}>
                 <img src={boximg}></img>
                     <div className='citydetails'>
                     <div className='citynamebox'><p className='citynamesp col'>{roomdetail[i].name}</p></div>
