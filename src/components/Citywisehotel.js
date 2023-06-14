@@ -1,9 +1,12 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet ,useNavigate} from 'react-router-dom'
 import "../App.css"
 import boximg from '../homebg.png'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import AuthContext from '../context/authContext'
 export default function Citywisehotel() {
     const [citydetail, setcitydetail] = useState();
+    const auth=useContext(AuthContext);
+    const navigate=useNavigate();
     useEffect(() => {
         handleSubmit();
     }, [])
@@ -43,7 +46,7 @@ export default function Citywisehotel() {
                                 if (citydetail) {
                                     for (let i = 0; i < citydetail.length; i++) {
                                         rows.push(
-                                            <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2'><div className='city p-2'>
+                                            <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2' onClick={()=>{auth.setsearchtype("");auth.setsearchcity(citydetail[i]._id);navigate("../hotellist")}}><div className='city p-2'>
                                                 <img src={boximg}></img>
                                                 <div className='citydetails'>
                                                     <div className='citynamebox'><p className='citynamesp col'>City: {citydetail[i]._id}</p></div>
