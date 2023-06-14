@@ -50,29 +50,19 @@ useEffect(() => {
                         </Link>
                     </li>
 
-                    <li className="nav-link">
-                        <a href="#">
-                        <i class='bx bxs-category icon'></i>
-                            <span className="text nav-text">All rooms</span>
-                        </a>
-                    </li>
+                   
+
+                    
 
                     <li className="nav-link">
                         <Link to="../addroom">
-                            <i class='bx bxs-city icon' ></i>
+                        <i class='bx bx-building icon'></i>
                             <span className="text nav-text">Add New Rooms</span>
                         </Link>
                     </li>
 
                     <li className="nav-link">
-                        <Link to="../addroom">
-                        <i class='bx bx-building icon'></i>
-                            <span className="text nav-text">Add Rooms</span>
-                        </Link>
-                    </li>
-
-                    <li className="nav-link">
-                        <Link to="../genprofile">
+                        <Link to="../selprofile">
                         <i class='bx bx-user icon'></i>
                             <span className="text nav-text">Profile</span>
                         </Link>
