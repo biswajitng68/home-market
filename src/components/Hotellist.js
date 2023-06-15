@@ -4,6 +4,8 @@ import boximg from '../homebg.png'
 import { useEffect, useState ,useContext} from 'react'
 import AuthContext from '../context/authContext'
 export default function Hotellist(){
+     const base_url="https://room-rover-app-backend-mern.onrender.com";
+   //const base_url=" http://localhost:4001";
     const navigate=useNavigate();
     const auth=useContext(AuthContext);
     const [roomdetail,setroomdetail]=useState();
@@ -14,7 +16,7 @@ handleSubmit();
 },[])
 
 const handleSubmit = async () => {
-    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/buildingDetails_Type_City_wise", {
+    const response = await fetch(base_url+"/api/buildingDetails_Type_City_wise", {
         method: 'POST',
         crossDomain: true,
         headers: {

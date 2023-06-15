@@ -8,6 +8,8 @@ const myComponentStyle = {
 
 
 export default function Addroom() {
+    // const base_url="https://room-rover-app-backend-mern.onrender.com";
+   const base_url=" http://localhost:4001";
     console.log(localStorage.getItem("sellerauthtoken"));
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
@@ -15,12 +17,34 @@ export default function Addroom() {
     const[image,setImage]=useState("");
    // add room api
    const [roominfo, setRoominfo] = useState({name:"",city:" ",address:" ", mobile:"",type:" ",roomdes:" ",price:" ",roomCount:1 }) 
-     const handleSubmit = async (e) => {
+  //--------------------------------------------------------   
+  function convertToBase64(e){
+    console.log(e);
+     var reader=new FileReader();
+     reader.readAsDataURL(e.target.files[0]);
+     reader.onload=()=>{
+        console.log(reader.result);
+        setImage(reader.result);
+        reader.onerror=error=>{
+            console.log("Error : ",error);
+        }
+     }
+  };
+   
+ 
+
+ 
+
+   //-------------------------------------
+   const handleSubmit = async (e) => {
+   
         e.preventDefault();
+      
         console.log(roominfo);
         console.log(counter);
         //http://localhost:4000/api/addBuilding  https://room-rover-app-backend-mern.onrender.com/api/addBuilding
-         const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/addBuilding", {
+         const response = await fetch( base_url+"/api/addBuilding", {
+            
             method: 'POST',
             crossDomain: true,
             headers: {
@@ -30,7 +54,7 @@ export default function Addroom() {
 
             },
             
-            body: JSON.stringify({token:localStorage.getItem("sellerauthtoken"),name:roominfo.name, city:roominfo.city,address:roominfo.address, mobile:roominfo.mobile, buildingType:roominfo.type,description:roominfo.roomdes,price:Number(roominfo.price),roomCount:Number(counter)})
+            body: JSON.stringify({token:localStorage.getItem("sellerauthtoken"),name:roominfo.name, city:roominfo.city,address:roominfo.address, mobile:roominfo.mobile, buildingType:roominfo.type,description:roominfo.roomdes,price:Number(roominfo.price),roomCount:Number(counter),base64:image})
         });
         const json = await response.json()
         if (json.success){
@@ -108,8 +132,9 @@ export default function Addroom() {
                             </div>
                             <div className="row"><label className="lb col" >Room Images </label>
                              <div className=" box col">
-                             <input   name="image " type="file" onChange={(e)=>setImage(e.target.files[0])} />
-                             <button className="  upbtn" >Upload</button>
+                             <input   type="file" accept='.jpeg, .png, .jpg'   onChange={convertToBase64} />
+                             
+      
                              </div>
                              <div className="row" id="container">
                              <button className=" btn-sub" onClick={handleSubmit} >Submit</button>
@@ -125,3 +150,5 @@ export default function Addroom() {
         </>
     )
 }
+
+//------------------

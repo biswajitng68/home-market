@@ -2,6 +2,8 @@ import '../App.css';
 import {useState,useEffect} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 export default function Signup(){
+     const base_url="https://room-rover-app-backend-mern.onrender.com";
+   //const base_url=" http://localhost:4001";
     const navigate=useNavigate();
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
@@ -29,7 +31,7 @@ export default function Signup(){
         e.preventDefault();
         console.log(credentials);
         //http://localhost:3001 https://room-rover-app-backend-mern.onrender.com
-        const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/register", {
+        const response = await fetch(base_url+"/api/register", {
             method: 'POST',
             crossDomain: true,
             headers: {

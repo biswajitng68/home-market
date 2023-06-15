@@ -4,13 +4,15 @@ import '../App.css';
 import { useEffect } from "react";
 import AuthContext from "../context/authContext";
 export default function Genprofile() {
+    const base_url="https://room-rover-app-backend-mern.onrender.com";
+   //const base_url=" http://localhost:4001";
   const [profile,setprofile]=useState({name:"",mobile:"",email:""});
   const auth=useContext(AuthContext);
   useEffect(()=>{
     handleSubmit();
     },[])
   const handleSubmit = async () => {
-    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/user_seller_profile", {
+    const response = await fetch(base_url+"/api/user_seller_profile", {
         method: 'POST',
         crossDomain: true,
         headers: {
