@@ -134,7 +134,9 @@ export default function Addroom() {
                              <div className=" box col">
                              <input   type="file" accept='.jpeg, .png, .jpg'   onChange={convertToBase64} />
                              
-      
+                             
+                                                      <img width={100} hieght={100} src={image}/>
+                                                    
                              </div>
                              <div className="row" id="container">
                              <button className=" btn-sub" onClick={handleSubmit} >Submit</button>

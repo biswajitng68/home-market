@@ -161,7 +161,7 @@ export default function Selhome() {
                                         <div className="contain">
 
                                             <div className="row">
-                                                <div className="hotel-con col ">
+                                                <div className="hotel-con col row ">
                                                     <label className="lab-btn p-2  " >Apartment Name : {des[i].name} </label>
                                                     <label className="lab-btn p-2  " >City :    {des[i].city} </label>
                                                     <label className="lab-btn p-2  " >Building-Type :{des[i].buildingType} </label>
@@ -170,10 +170,11 @@ export default function Selhome() {
                                                     <label className=" lab-btn p-2  " >Contact No : {des[i].mobile} </label>
                                                     <label className=" lab-btn p-2  " >No of Rooms :  {des[i].roomCount} </label>
                                                 </div>
-                                                <div className="hotel-image col">
-                                                    <label className="lab-btn p-2  " >Apartment Name : {des[i].name} </label>
-                                                    <label className="lab-btn p-2  " >City :    {des[i].city} </label>
-                                                </div>
+                                                
+                                                   <img className="hotel-image col" style={{ objectFit: 'contain' }} src={des[i].image}/>
+                                                    
+                                                   
+                                               
                                             </div>
 
 
