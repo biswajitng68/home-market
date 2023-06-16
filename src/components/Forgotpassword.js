@@ -1,9 +1,11 @@
 import '../App.css';
-import {useState,useEffect,useContext} from 'react'
+import {useState,useEffect,useContext,useRef} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 import AuthContext from '../context/authContext';
+import LoadingBar from 'react-top-loading-bar'
 export default function Forgotpassword(){
     const navigate=useNavigate();
+    const ref=useRef(null);
     const auth=useContext(AuthContext);
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
@@ -33,6 +35,7 @@ export default function Forgotpassword(){
     
         const handleSubmit = async (e) => {
             e.preventDefault();
+            ref.current.continuousStart()
             console.log(credentials);
             const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/generateOTP", {
                 method: 'PUT',
@@ -67,6 +70,7 @@ export default function Forgotpassword(){
                 if(json.success)
                 navigate("../otp")
             }, 10000);
+            ref.current.complete()
         }
     
         const onchange = (e)=>{
@@ -76,6 +80,7 @@ export default function Forgotpassword(){
     return(
         <>
         <section className="home">
+        <LoadingBar color='#f11946' height={4} ref={ref} />
         <div className="text">Email verify</div>
         {alert==true&&
         <div className='d-flex justify-content-end aalert-container'>

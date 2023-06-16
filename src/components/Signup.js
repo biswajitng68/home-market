@@ -1,11 +1,13 @@
 import '../App.css';
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useRef} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
+import LoadingBar from 'react-top-loading-bar'
 export default function Signup(){
      const base_url="https://room-rover-app-backend-mern.onrender.com";
    //const base_url=" http://localhost:4001";
     const navigate=useNavigate();
     const [alert,setalert]=useState();
+    const ref=useRef(null);
     var [alertmessage,setalm]=useState("Here is an alert");
     const [credentials, setCredentials] = useState({user:"user",name:"", mobile:"", email: "", password: ""}) 
     var lst={
@@ -30,6 +32,7 @@ export default function Signup(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(credentials);
+        ref.current.continuousStart()
         //http://localhost:3001 https://room-rover-app-backend-mern.onrender.com
         const response = await fetch(base_url+"/api/register", {
             method: 'POST',
@@ -63,6 +66,7 @@ export default function Signup(){
             if(json.success)
             navigate("../otp")
         }, 10000);
+        ref.current.complete();
     }
 
     const onchange = (e)=>{
@@ -72,6 +76,7 @@ export default function Signup(){
     return(
         <>
         <section className="home">
+        <LoadingBar color='#f11946' height={4} ref={ref} />
         <div className="text">Sign up</div>
         {alert==true&&
         <div className='d-flex justify-content-end aalert-container'>

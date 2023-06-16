@@ -1,11 +1,13 @@
-import { useState ,useContext,useEffect} from 'react';
+import { useState ,useContext,useEffect,useRef} from 'react';
 import '../App.css';
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 import AuthContext from '../context/authContext';
+import LoadingBar from 'react-top-loading-bar'
 export default function Changepass(){
      const base_url="https://room-rover-app-backend-mern.onrender.com";
    //const base_url=" http://localhost:4001";
     const navigate=useNavigate();
+    const ref=useRef(null);
     const auth =useContext(AuthContext);
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
@@ -32,6 +34,7 @@ export default function Changepass(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        ref.current.continuousStart()
         const response = await fetch(base_url+"/api/updatePassword", {
             method: 'PUT',
             crossDomain: true,
@@ -62,12 +65,14 @@ export default function Changepass(){
             }
             
         }, 10000);
+        ref.current.complete()
     }
     
 
     return(
         <>
         <section className="home">
+        <LoadingBar color='#f11946' height={4} ref={ref} />
         <div className="text">Change password</div>
         {alert==true&&
         <div className='d-flex justify-content-end alert-container'>

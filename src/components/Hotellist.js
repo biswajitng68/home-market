@@ -1,8 +1,9 @@
 import {Outlet,useNavigate} from 'react-router-dom'
 import "../App.css"
 import boximg from '../homebg.png'
-import { useEffect, useState ,useContext} from 'react'
+import { useEffect, useState ,useContext,useRef} from 'react'
 import AuthContext from '../context/authContext'
+import LoadingBar from 'react-top-loading-bar'
 export default function Hotellist(){
      const base_url="https://room-rover-app-backend-mern.onrender.com";
    //const base_url=" http://localhost:4001";
@@ -11,11 +12,13 @@ export default function Hotellist(){
     const [roomdetail,setroomdetail]=useState();
     const [searchmin,setsearchmin]=useState(0);
     const [searchmax,setsearchmax]=useState(20000);
+    const ref=useRef(null);
 useEffect(()=>{
 handleSubmit();
 },[])
 
 const handleSubmit = async () => {
+    ref.current.continuousStart();
     const response = await fetch(base_url+"/api/buildingDetails_Type_City_wise", {
         method: 'POST',
         crossDomain: true,
@@ -36,10 +39,12 @@ const handleSubmit = async () => {
     else{
         alert(json.message);
     }
+    ref.current.complete();
 }
     return(
         <>
             <section className="home">
+            <LoadingBar color='#f11946' height={4} ref={ref} />
         <div className="text">All rooms</div>
         <div className='container-fluid'>
             <div className='searchbox'>

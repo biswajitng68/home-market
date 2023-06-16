@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import profilePicture from '../homebg.png'
 import '../App.css';
-import { useEffect } from "react";
+import { useEffect,useRef } from "react";
 import AuthContext from "../context/authContext";
+import LoadingBar from 'react-top-loading-bar';
 export default function Genprofile() {
     const base_url="https://room-rover-app-backend-mern.onrender.com";
    //const base_url=" http://localhost:4001";
@@ -10,11 +11,14 @@ export default function Genprofile() {
   const [bookdetail,setbook]=useState([]);
   const [num,setnum]=useState();
   const auth=useContext(AuthContext);
+  const ref=useRef(null);
+  
   useEffect(()=>{
     handleSubmit();
     bookingdetail();
     },[])
   const handleSubmit = async () => {
+    ref.current.continuousStart()
     const response = await fetch(base_url+"/api/user_seller_profile", {
         method: 'POST',
         crossDomain: true,
@@ -35,10 +39,12 @@ export default function Genprofile() {
     else{
         alert(json.message);
     }
+    ref.current.complete()
 }
 
 const cancelbook = async (i) => {
   // console.log(i);
+  ref.current.continuousStart()
   const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/cancelBooking", {
       method: 'PUT',
       crossDomain: true,
@@ -49,15 +55,17 @@ const cancelbook = async (i) => {
 
       },
       
-      body: JSON.stringify({token:localStorage.getItem("userauthtoken"),booking_id:bookdetail[i||num]._id})
+      body: JSON.stringify({token:localStorage.getItem("userauthtoken"),booking_id:bookdetail[i]._id})
   });
   const json = await response.json()
   if(json.success){
     bookingdetail();}
   alert(json.message)
+  ref.current.complete()
 }
 
 const bookingdetail = async () => {
+  ref.current.continuousStart()
   const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/user_booking_Details", {
       method: 'POST',
       crossDomain: true,
@@ -78,10 +86,13 @@ const bookingdetail = async () => {
   else{
       alert(json.message);
   }
+  ref.current.complete()
 }
   return (
     <>
-      <section className="home">
+      <section className="home" >
+            <LoadingBar color='#f11946' height={4} ref={ref} />
+     
         <div className="text">Profile</div>
         <div className="p-3 row mx-0 my-0">
           <div className="profile-page my-3 col-12 col-lg-6">

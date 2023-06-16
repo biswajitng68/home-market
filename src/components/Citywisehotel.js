@@ -1,19 +1,22 @@
 import { Outlet ,useNavigate} from 'react-router-dom'
 import "../App.css"
 import boximg from '../homebg.png'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState,useRef } from 'react'
 import AuthContext from '../context/authContext'
+import LoadingBar from 'react-top-loading-bar'
 export default function Citywisehotel() {
       const base_url="https://room-rover-app-backend-mern.onrender.com";
    //const base_url=" http://localhost:4001";
     const [citydetail, setcitydetail] = useState();
     const auth=useContext(AuthContext);
     const navigate=useNavigate();
+    const ref=useRef(null);
     useEffect(() => {
         handleSubmit();
     }, [])
 
     const handleSubmit = async () => {
+        ref.current.continuousStart()
         const response = await fetch(base_url+"/api/allCities_roomCount_minCost", {
             method: 'GET',
             crossDomain: true,
@@ -34,10 +37,12 @@ export default function Citywisehotel() {
         else {
             alert(json.message);
         }
+        ref.current.complete()
     }
     return (
         <>
             <section className="home">
+            <LoadingBar color='#f11946' height={4} ref={ref} />
                 <div className="text">Cities</div>
                 <div className='container-fluid'>
                     <div className='row hotelcontainer'>

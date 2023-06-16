@@ -1,17 +1,20 @@
 import {Outlet,useNavigate} from 'react-router-dom'
 import "../App.css"
 import boximg from '../homebg.png'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState,useRef } from 'react'
+import LoadingBar from 'react-top-loading-bar';
 import AuthContext from '../context/authContext'
 export default function Typewisehotel(){
     const [typedetail,settypedetail]=useState();
     const auth=useContext(AuthContext);
     const navigate=useNavigate();
+    const ref=useRef(null);
 useEffect(()=>{
 handleSubmit();
 },[])
 
 const handleSubmit = async () => {
+    ref.current.continuousStart()
     const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/allBuildingTypes_roomCount_minCost", {
         method: 'GET',
         crossDomain: true,
@@ -32,10 +35,12 @@ const handleSubmit = async () => {
     else{
         alert(json.message);
     }
+    ref.current.complete()
 }
     return(
         <>
             <section className="home">
+            <LoadingBar color='#f11946' height={4} ref={ref} />
         <div className="text">Roomtypes</div>
         <div className='container-fluid'>
             <div className='row hotelcontainer'>
