@@ -8,7 +8,7 @@ const params =useParams();
 const [hoteldetail,sethoteldetail]=useState();
 useEffect(()=>{
 handleSubmit();
-})
+},[])
 
 const handleSubmit = async () => {
     const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/building_Details", {
@@ -26,11 +26,28 @@ const handleSubmit = async () => {
     const json = await response.json()
     if (json.success){
         sethoteldetail(json.data[0]);
-
+        console.log(json);
     }
     else{
         alert(json.error)
     }
+}
+
+const bookroom = async () => {
+    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/bookRoom", {
+        method: 'POST',
+        crossDomain: true,
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json",
+             "Access-Control-Allow-Origin": "*",
+
+        },
+        
+        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken"),seller_id:hoteldetail.seller._id})
+    });
+    const json = await response.json()
+    alert(json.message);
 }
 
     return(
@@ -56,7 +73,7 @@ const handleSubmit = async () => {
         </div>
         <div className='hoteldetailtext'>Available Rooms: {hoteldetail.available}</div>
         <div className='d-grid mx-auto hoteldetailtext'>
-            <button type="button" className="btn btn-primary bookbutton">Book</button>
+            <button type="button" className="btn btn-primary bookbutton" onClick={bookroom}>Book</button>
         </div>
         <div className='hoteldetailtext ownerdetail rounded my-2'>
             <h4>Contact details</h4>
