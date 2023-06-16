@@ -3,6 +3,8 @@ import {useEffect, useState,useContext} from 'react'
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 import AuthContext from '../context/authContext';
 export default function Otpverify(){
+     const base_url="https://room-rover-app-backend-mern.onrender.com";
+   //const base_url=" http://localhost:4001";
     const navigate=useNavigate();
     const auth =useContext(AuthContext);
     const [alert,setalert]=useState();
@@ -30,7 +32,7 @@ useEffect(()=>{
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/verifyOTP", {
+    const response = await fetch(base_url+"/api/verifyOTP", {
         method: 'POST',
         crossDomain: true,
         headers: {

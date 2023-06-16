@@ -578,6 +578,16 @@ body.dark .home .text{
         background-color: #6d86f5;
         border: none;
       }
+      .hotel-image {
+        padding: 8px;
+        width: 400px;
+        height: 300px;
+        margin-left: 30px;
+        margin-top: 100px;
+        border-radius: 8px;
+        background-color: #6d86f5;
+        border: none;
+      }
       
       
 

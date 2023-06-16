@@ -4,6 +4,8 @@ import boximg from '../homebg.png'
 import { useEffect, useState } from 'react';
 
 export default function Hotel(){
+      const base_url="https://room-rover-app-backend-mern.onrender.com";
+   //const base_url=" http://localhost:4001";
 const params =useParams();
 const [hoteldetail,sethoteldetail]=useState();
 useEffect(()=>{
@@ -11,7 +13,7 @@ handleSubmit();
 },[])
 
 const handleSubmit = async () => {
-    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/building_Details", {
+    const response = await fetch(base_url+"/api/building_Details", {
         method: 'POST',
         crossDomain: true,
         headers: {
