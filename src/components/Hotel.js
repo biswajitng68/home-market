@@ -1,4 +1,4 @@
-import {Outlet,useParams} from 'react-router-dom'
+import {Outlet,useParams,useNavigate} from 'react-router-dom'
 import "../App.css"
 import boximg from '../homebg.png'
 import { useEffect, useState,useRef } from 'react';
@@ -9,6 +9,7 @@ export default function Hotel(){
 const params =useParams();
 const [hoteldetail,sethoteldetail]=useState();
 const ref=useRef(null);
+const nav=useNavigate();
 useEffect(()=>{
 handleSubmit();
 },[])
@@ -38,6 +39,69 @@ const handleSubmit = async () => {
     ref.current.complete();
 }
 
+const remfromwishlist = async () => {
+    ref.current.continuousStart();
+    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/remove_from_wishlist", {
+        method: 'POST',
+        crossDomain: true,
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json",
+             "Access-Control-Allow-Origin": "*",
+
+        },
+        
+        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken"),seller_id:hoteldetail.seller._id})
+    });
+    const json = await response.json()
+    if(json.success){
+        nav("../genprofile")
+    }
+    alert(json.message);
+    ref.current.complete();
+}
+
+const viewwishlist = async () => {
+    ref.current.continuousStart();
+    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/view_wishlist", {
+        method: 'POST',
+        crossDomain: true,
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json",
+             "Access-Control-Allow-Origin": "*",
+
+        },
+        
+        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken"),seller_id:hoteldetail.seller._id})
+    });
+    const json = await response.json()
+    if(json.success){
+        nav("../genprofile")
+    }
+    alert(json.message);
+    ref.current.complete();
+}
+
+const wishlist = async () => {
+    ref.current.continuousStart();
+    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/add_to_wishlist", {
+        method: 'POST',
+        crossDomain: true,
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json",
+             "Access-Control-Allow-Origin": "*",
+
+        },
+        
+        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken")})
+    });
+    const json = await response.json()
+    alert(json.message);
+    ref.current.complete();
+}
+
 const bookroom = async () => {
     ref.current.continuousStart();
     const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/bookRoom", {
@@ -54,7 +118,7 @@ const bookroom = async () => {
     });
     const json = await response.json()
     if(json.success){
-        handleSubmit();
+        nav("../genprofile")
     }
     alert(json.message);
     ref.current.complete();
@@ -85,6 +149,9 @@ const bookroom = async () => {
         <div className='hoteldetailtext'>Available Rooms: {hoteldetail.available}</div>
         <div className='d-grid mx-auto hoteldetailtext'>
             <button type="button" className="btn btn-primary bookbutton" onClick={bookroom}>Book</button>
+        </div>
+        <div className='d-grid mx-auto hoteldetailtext'>
+            <button type="button" className="btn btn-primary bookbutton" onClick={wishlist}>Add to wishlist</button>
         </div>
         <div className='hoteldetailtext ownerdetail rounded my-2'>
             <h4>Contact details</h4>
