@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Selhome() {
-    //const base_url = "https://room-rover-app-backend-mern.onrender.com";
-     const base_url=" http://localhost:4001";
+    const base_url = "https://room-rover-app-backend-mern.onrender.com";
+    // const base_url=" http://localhost:4001";
     const navigate = useNavigate();
     useEffect(() => {
 
@@ -158,9 +158,9 @@ export default function Selhome() {
                             if (des) {
                                 for (let i = 0; i < des.length; i++) {
                                     rows.push(
-                                        <div className="contain">
+                                        <div className="contain row">
 
-                                            <div className="row">
+                                            
                                                 <div className="hotel-con col row ">
                                                     <label className="lab-btn p-2  " >Apartment Name : {des[i].name} </label>
                                                     <label className="lab-btn p-2  " >City :    {des[i].city} </label>
@@ -169,7 +169,7 @@ export default function Selhome() {
                                                     <label className=" lab-btn p-2  " >Room Description : {des[i].description}</label>
                                                     <label className=" lab-btn p-2  " >Contact No : {des[i].mobile} </label>
                                                     <label className=" lab-btn p-2  " >No of Rooms :  {des[i].roomCount} </label>
-                                                </div>
+                                               
                                                 
                                                    <img className="hotel-image col" style={{ objectFit: 'contain' }} src={des[i].image}/>
                                                     
