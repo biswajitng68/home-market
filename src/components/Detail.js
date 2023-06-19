@@ -1,12 +1,37 @@
 export default function (){
 
+
+
+    async function fetch() {
+
+        const response = await fetch(base_url + "/api//seller_booking_Details", {
+            method: 'POST',
+            crossDomain: true,
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+
+            body: JSON.stringify({ token: String(localStorage.getItem("sellerauthtoken")) })
+        });
+        const json = await response.json()
+        if (json.success) {
+            console.log(json.data);
+            setTyp(json.data);
+        }
+        else {
+            alert(json.message);
+        }
+    }
     return(
         <>
         
         <section className="home">
+        
+     
        
-       <div className="table-responsive row">
-                                                <table className="table">
+                                                <table className="table" id="table1">
                                                     <thead>
                                                         <tr>
                                                             <th>Room No</th>
@@ -36,8 +61,42 @@ export default function (){
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </div> 
+                                            
+       
+                                                <table className="table"  id="table2">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Room No</th>
+                                                            <th>Customer Name</th>
+                                                            <th>Contact No</th>
+                                                            <th>Price</th>
+                                                            <th>Room status</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>101</td>
+                                                            <td>Ramkrishna Sarkar</td>
+                                                            <td>9923456789</td>
+                                                            <td>8000</td>
+                                                            <td>Booked</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>102</td>
+                                                            <td>Biswajit Nag</td>
+                                                            <td>9923456789</td>
+                                                            <td>8000</td>
+                                                            <td>Booked</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+        
      
+       
+    
         </section>
         </>
     )
