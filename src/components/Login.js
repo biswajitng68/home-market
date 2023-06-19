@@ -5,11 +5,10 @@ import AuthContext from '../context/authContext';
 import LoadingBar from 'react-top-loading-bar'
 export default function Login(){
     const base_url="https://room-rover-app-backend-mern.onrender.com";
-<<<<<<< HEAD
+
    //const base_url=" http://localhost:4001";
-=======
 //    const base_url=" http://localhost:4001";
->>>>>>> b491128e7c0c956300aebfa07155314b5e5f9658
+
     const navigate=useNavigate();
     const ref=useRef(null);
     const auth =useContext(AuthContext);

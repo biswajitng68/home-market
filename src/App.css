@@ -574,28 +574,7 @@ body.dark .home .text{
       .row{
         margin: 20px; 
       }
-      .hotel-con
-      {
-        padding: 8px;
-        width: 400px;
-        height: 300px;
-        margin-left: 30px;
-        margin-top: 100px;
-        border-radius: 8px;
-        background-color: #6d86f5;
-        border: none;
-      }
-      .hotel-image {
-        padding: 8px;
-        width: 400px;
-        height: 300px;
-        margin-left: 30px;
-        margin-top: 100px;
-        border-radius: 8px;
-        background-color: #6d86f5;
-        border: none;
-      }
-      
+   
       
 
 .hotelpage{
@@ -693,4 +672,37 @@ tbody{
     position: unset;
     width: 100%;
     margin: 0;
+}
+
+/* seller Dashbord css */
+.hotel-con
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+  background-color: #6d86f5;
+  border: none;
+}
+.det-contain{
+  padding: 8px;
+  width: 100%;
+    max-height: 100%;
+  margin-left: 30px;
+  margin-top: 100px;
+  border-radius: 8px;
+  width: 50%;
+}
+.im{
+  padding: 18px;
+  
+}
+.hotel-image {
+    width: 100%;
+    max-height: 100%;
+    padding:10px;
+    overflow: hidden;
+  background-color: #6d86f5;
+  border: none;
 }

@@ -20,6 +20,8 @@ import Forgotpassword from './components/Forgotpassword';
 import Changepass from './components/Changepass';
 import Authstate from './context/Authstate';
 import Typewisehotel from './components/Typewisehotel';
+import Detail from './components/Detail';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -44,6 +46,7 @@ root.render(
         <Route path="selprofile" element={<Selprofile />} />
         <Route path="addroom" element={<Addroom />} />
         <Route path="selhome" element={<Selhome />} />
+        <Route path="detail" element={<Detail />} />
         </Route>
     </Routes>
     </Authstate>

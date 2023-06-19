@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 export default function Selhome() {
     const base_url = "https://room-rover-app-backend-mern.onrender.com";
 
     // const base_url=" http://localhost:4001";
 
     //  const base_url=" http://localhost:4001";
+    const handleClick = () => {
+        window.location.href = `/detail`;
+      };
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -154,7 +158,8 @@ export default function Selhome() {
                     </div>
 
                 </div>
-                <div className='row hoteldetcontainer'>
+                
+                <div className='row hoteldetcontainer' to="/detail" onClick={handleClick}>
                     {
                         (() => {
                             let rows = [];
@@ -162,10 +167,10 @@ export default function Selhome() {
                             if (des) {
                                 for (let i = 0; i < des.length; i++) {
                                     rows.push(
-                                        <div className="contain row">
+                                        <div className="hotel-con row">
 
                                             
-                                                <div className="hotel-con col row ">
+                                                <div className=" contain col row ">
                                                     <label className="lab-btn p-2  " >Apartment Name : {des[i].name} </label>
                                                     <label className="lab-btn p-2  " >City :    {des[i].city} </label>
                                                     <label className="lab-btn p-2  " >Building-Type :{des[i].buildingType} </label>
@@ -173,47 +178,16 @@ export default function Selhome() {
                                                     <label className=" lab-btn p-2  " >Room Description : {des[i].description}</label>
                                                     <label className=" lab-btn p-2  " >Contact No : {des[i].mobile} </label>
                                                     <label className=" lab-btn p-2  " >No of Rooms :  {des[i].roomCount} </label>
-                                               
-                                                
-                                                   <img className="hotel-image col" style={{ objectFit: 'contain' }} src={des[i].image}/>
-                                                    
+                                               </div>
+                                                <div  className="im col">
+                                                   <img className="hotel-image " style={{ objectFit: 'contain' }} src={des[i].image}/>
+                                                </div> 
                                                    
                                                
-                                            </div>
+                                            
 
 
-                                            <div className="table-responsive row">
-                                                <table className="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Room No</th>
-                                                            <th>Customer Name</th>
-                                                            <th>Contact No</th>
-                                                            <th>Price</th>
-                                                            <th>Room status</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>101</td>
-                                                            <td>Ramkrishna Sarkar</td>
-                                                            <td>9923456789</td>
-                                                            <td>8000</td>
-                                                            <td>Booked</td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td>102</td>
-                                                            <td>Biswajit Nag</td>
-                                                            <td>9923456789</td>
-                                                            <td>8000</td>
-                                                            <td>Booked</td>
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                            
 
                                         </div>
                                     );
@@ -223,6 +197,7 @@ export default function Selhome() {
                         })()
                     }
                 </div>
+                
 
 
             </section>
