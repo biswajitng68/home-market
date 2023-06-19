@@ -8,10 +8,13 @@ export default function Hotel(){
    //const base_url=" http://localhost:4001";
 const params =useParams();
 const [hoteldetail,sethoteldetail]=useState();
+const [wished,setwished]=useState(false);
 const ref=useRef(null);
 const nav=useNavigate();
 useEffect(()=>{
 handleSubmit();
+if(localStorage.getItem("userauthtoken"))
+viewwishlist();
 },[])
 
 const handleSubmit = async () => {
@@ -51,19 +54,18 @@ const remfromwishlist = async () => {
 
         },
         
-        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken"),seller_id:hoteldetail.seller._id})
+        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken")})
     });
     const json = await response.json()
-    if(json.success){
-        nav("../genprofile")
-    }
+    if(json.success)
+    setwished(false);
     alert(json.message);
     ref.current.complete();
 }
 
 const viewwishlist = async () => {
     ref.current.continuousStart();
-    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/view_wishlist", {
+    const response = await fetch("https://room-rover-app-backend-mern.onrender.com/api/add_to_wishlist", {
         method: 'POST',
         crossDomain: true,
         headers: {
@@ -73,13 +75,14 @@ const viewwishlist = async () => {
 
         },
         
-        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken"),seller_id:hoteldetail.seller._id})
+        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken"),verify:true})
     });
     const json = await response.json()
     if(json.success){
-        nav("../genprofile")
+        setwished(json.present_in_wishlist);
     }
-    alert(json.message);
+    else
+    alert(json.error2);
     ref.current.complete();
 }
 
@@ -95,9 +98,12 @@ const wishlist = async () => {
 
         },
         
-        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken")})
+        body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken"),verify:false})
     });
     const json = await response.json()
+    if(json.success){
+        setwished(true);
+    }
     alert(json.message);
     ref.current.complete();
 }
@@ -150,9 +156,12 @@ const bookroom = async () => {
         <div className='d-grid mx-auto hoteldetailtext'>
             <button type="button" className="btn btn-primary bookbutton" onClick={bookroom}>Book</button>
         </div>
-        <div className='d-grid mx-auto hoteldetailtext'>
+        {wished==false?<div className='d-grid mx-auto hoteldetailtext'>
             <button type="button" className="btn btn-primary bookbutton" onClick={wishlist}>Add to wishlist</button>
-        </div>
+        </div>:
+        <div className='d-grid mx-auto hoteldetailtext'>
+        <button type="button" className="btn btn-primary bookbutton" onClick={remfromwishlist}>Remove from wishlist</button>
+    </div>}
         <div className='hoteldetailtext ownerdetail rounded my-2'>
             <h4>Contact details</h4>
             <div className='hoteldetailtext'>Owner:{hoteldetail.seller.name}</div>
