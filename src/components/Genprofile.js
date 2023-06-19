@@ -55,6 +55,7 @@ export default function Genprofile() {
     if (json.success){
         console.log(json.data);
         setprofile(json.data);
+        if(json.data.image)
         setb64(json.data.image);
     }
     else{
