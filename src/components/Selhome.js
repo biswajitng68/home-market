@@ -7,9 +7,7 @@ export default function Selhome() {
     // const base_url=" http://localhost:4001";
 
     //  const base_url=" http://localhost:4001";
-    const handleClick = () => {
-        window.location.href = `/detail`;
-      };
+   
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -65,7 +63,7 @@ export default function Selhome() {
             alert(json.message);
         }
     }
-
+    const [id,Setid]=useState("");
     const [sel, setSel] = useState("");
     const [sel1, setSel1] = useState("");
     const [des, setDes] = useState();
@@ -159,7 +157,7 @@ export default function Selhome() {
 
                 </div>
                 
-                <div className='row hoteldetcontainer' to="/detail" onClick={handleClick}>
+                <div className='row hoteldetcontainer' >
                     {
                         (() => {
                             let rows = [];
@@ -167,10 +165,11 @@ export default function Selhome() {
                             if (des) {
                                 for (let i = 0; i < des.length; i++) {
                                     rows.push(
-                                        <div className="hotel-con row">
+                                        <div className="hotel-con row" value={des[i]._id} to="/detail" onClick={(e)=>{navigate("../seller/"+des[i]._id)}}>
 
                                             
                                                 <div className=" contain col row ">
+                            
                                                     <label className="lab-btn p-2  " >Apartment Name : {des[i].name} </label>
                                                     <label className="lab-btn p-2  " >City :    {des[i].city} </label>
                                                     <label className="lab-btn p-2  " >Building-Type :{des[i].buildingType} </label>
