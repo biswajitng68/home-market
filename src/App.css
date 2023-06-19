@@ -706,3 +706,19 @@ tbody{
   background-color: #6d86f5;
   border: none;
 }
+
+#heading{
+    padding-left: 30px;
+}
+
+#table1
+{
+ 
+    position: absolute; top: 0; left: 0;
+}
+#table2
+{
+ 
+    position: absolute; top: 400px; left: 0;
+}
+

@@ -1,8 +1,8 @@
 export default function (){
 
+    const base_url = "https://room-rover-app-backend-mern.onrender.com";
 
-
-    async function fetch() {
+    async function fetchbooking() {
 
         const response = await fetch(base_url + "/api//seller_booking_Details", {
             method: 'POST',
@@ -18,7 +18,7 @@ export default function (){
         const json = await response.json()
         if (json.success) {
             console.log(json.data);
-            setTyp(json.data);
+            
         }
         else {
             alert(json.message);

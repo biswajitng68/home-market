@@ -46,7 +46,7 @@ root.render(
         <Route path="selprofile" element={<Selprofile />} />
         <Route path="addroom" element={<Addroom />} />
         <Route path="selhome" element={<Selhome />} />
-        <Route path="detail" element={<Detail />} />
+        <Route path="seller/:detail" element={<Detail />} />
         </Route>
     </Routes>
     </Authstate>
