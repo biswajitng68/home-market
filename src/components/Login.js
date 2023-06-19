@@ -1,12 +1,17 @@
-import { useEffect,useState,useContext } from 'react';
+import { useEffect,useState,useContext,useRef } from 'react';
 import '../App.css';
 import {Outlet, Link ,useNavigate} from "react-router-dom";
 import AuthContext from '../context/authContext';
-
+import LoadingBar from 'react-top-loading-bar'
 export default function Login(){
     const base_url="https://room-rover-app-backend-mern.onrender.com";
+<<<<<<< HEAD
    //const base_url=" http://localhost:4001";
+=======
+//    const base_url=" http://localhost:4001";
+>>>>>>> b491128e7c0c956300aebfa07155314b5e5f9658
     const navigate=useNavigate();
+    const ref=useRef(null);
     const auth =useContext(AuthContext);
     const [alert,setalert]=useState();
     var [alertmessage,setalm]=useState("Here is an alert");
@@ -35,6 +40,7 @@ useEffect(()=>{
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        ref.current.continuousStart()
         console.log(base_url);
         console.log(credentials);
         //http://localhost:3001 https://room-rover-app-backend-mern.onrender.com
@@ -83,6 +89,7 @@ useEffect(()=>{
             }
             
         }, 10000);
+        ref.current.complete()
     }
 
     const onchange = (e)=>{
@@ -92,6 +99,7 @@ useEffect(()=>{
     return(
         <>
         <section className="home">
+        <LoadingBar color='#f11946' height={4} ref={ref} />
         <div className="text">Log in</div>
         {alert==true&&
         <div className='d-flex justify-content-end aalert-container'>
