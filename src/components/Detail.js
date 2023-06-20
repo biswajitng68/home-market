@@ -28,9 +28,9 @@ export default function (){
         <>
         
         <section className="home">
-        
+        <div>
      
-       
+       <h2>now</h2>
                                                 <table className="table" id="table1">
                                                     <thead>
                                                         <tr>
@@ -61,8 +61,8 @@ export default function (){
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            
-       
+                                                </div>     
+       <h2>prev</h2>
                                                 <table className="table"  id="table2">
                                                     <thead>
                                                         <tr>
