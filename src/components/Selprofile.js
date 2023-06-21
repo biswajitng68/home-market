@@ -8,6 +8,11 @@ export default function Selprofile(){
         { id: 'item2', isOn: false },
         { id: 'item3', isOn: false },
       ]);
+      setItems([
+        { id: 'item1', isOn: true },
+        { id: 'item2', isOn: false },
+        { id: 'item3', isOn: false },
+      ]);
     return(
         <>
         <section className="home">

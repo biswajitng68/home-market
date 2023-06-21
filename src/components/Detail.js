@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
-import { Outlet, useParams, useNavigate } from 'react-router-dom';
-import ToggleSwitch from '../components/ToggleSwitch';
+import {  useParams} from 'react-router-dom';
+// import ToggleSwitch from '../components/ToggleSwitch';
 
-export default function () {
+export default function Detail () {
     const params = useParams();
     const [book, Setbook] = useState();
-    const [items, setItems] = useState([]);
+    // const [items, setItems] = useState([]);
     //console.log(params.detail);
     const base_url = "https://room-rover-app-backend-mern.onrender.com";
     useEffect(() => {
         fetchbooking();
-    }, [book]);
+    }, );
 
     //const [text, setChecked] = useState([]);
     const handleChange = (event, param1) => {
 
-        if (window.confirm("Press a button!") == true) {
+        if (window.confirm("Press a button!") === true) {
             //setChecked(true);
             checkout(param1);
             fetchbooking();
@@ -104,7 +104,7 @@ export default function () {
                                             if (book) {
                                                 let c = 0;
                                                 for (let i = 0; i < book.length; i++) {
-                                                    if (book[i].status == "booked") {
+                                                    if (book[i].status === "booked") {
                                                        
                                                         rows.push
                                                             (
@@ -155,7 +155,7 @@ export default function () {
 
                                                 if (book) {
                                                     for (let i = 0; i < book.length; i++) {
-                                                        if (book[i].status != "booked") {
+                                                        if (book[i].status !== "booked") {
                                                             rows.push
                                                                 (
                                                                     <tr>

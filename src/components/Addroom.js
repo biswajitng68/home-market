@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 const myComponentStyle = {  
     backgroundColor: 'white', 
@@ -97,7 +97,7 @@ export default function Addroom() {
         <>
         <section className="home">
         <div className="text">Add room</div>
-        {alert==true&&
+        {alert===true&&
         <div className='d-flex justify-content-end aalert-container'>
             <div className='d-flex alert rounded'><i className='bx bx-bell  mx-1'></i><span className='alerttext'>{alertmessage}</span></div>
         </div>}
@@ -146,7 +146,7 @@ export default function Addroom() {
                              <input   type="file" accept='.jpeg, .png, .jpg'   onChange={convertToBase64} />
                              
                              
-                                                      <img width={100} hieght={100} src={image}/>
+                                                      <img width={100} hieght={100} src={image} alt='home'/>
                                                     
                              </div>
                              <div className="row" id="container">
