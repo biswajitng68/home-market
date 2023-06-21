@@ -271,7 +271,7 @@ const checkoutdetail = async () => {
       rows.push(
     <tr>
       <td>{checkkdetail[i].building.name}</td>
-      <td>{checkkdetail[i].building.seller.name}</td>
+      <td>{checkkdetail[i].seller.name}</td>
       <td>{checkkdetail[i].building.city}</td>
     </tr>);}}
   return rows;

@@ -645,7 +645,7 @@ body.dark .home .text{
 .table{
     width: 80%;
     border-radius: 8px;
-    position: absolute;
+
     margin: 20px;
     color: white;
     background-color: #94a2e4;
@@ -711,14 +711,8 @@ tbody{
     padding-left: 30px;
 }
 
-#table1
-{
- 
-    position: absolute; top: 0; left: 0;
-}
-#table2
-{
- 
-    position: absolute; top: 400px; left: 0;
+.tab-con{
+    padding: 20px;
 }
 
+/* Toggle switch*/

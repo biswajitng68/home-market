@@ -1,5 +1,5 @@
 import {useState,useEffect} from 'react'
-
+import { useNavigate } from "react-router-dom";
 const myComponentStyle = {  
     backgroundColor: 'white', 
     
@@ -8,7 +8,7 @@ const myComponentStyle = {
 
 
 export default function Addroom() {
-
+    const navigate = useNavigate();
      const base_url="https://room-rover-app-backend-mern.onrender.com";
    //const base_url=" http://localhost:4001";
 
@@ -67,6 +67,7 @@ export default function Addroom() {
            console.log(json.message);
             setalm(json.message)
            setalert(true);
+           
             
             
 
@@ -79,7 +80,12 @@ export default function Addroom() {
 
         setTimeout(() => {
             setalert(false);
-        }, 10000);
+            if(json.success)
+            {
+                navigate("../selhome");
+            }
+            
+        }, 50);
          
     }
     const onchange = (e)=>{
