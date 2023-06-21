@@ -17,8 +17,8 @@ export default function () {
 
         if (window.confirm("Press a button!") == true) {
             //setChecked(true);
-            // checkout(param1);
-            //fetchbooking();
+            checkout(param1);
+            fetchbooking();
             setChecked(false);
         } else {
             setChecked(true);
