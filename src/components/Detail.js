@@ -113,7 +113,7 @@ export default function () {
                                                                     <td>{book[i].user.name}</td>
                                                                     <td>{book[i].user.email}</td>
                                                                     <td>{book[i].user.mobile}</td>
-                                                                    <td><button>booked</button>  onChange={event => handleChange(event, book[i]._id)} </td>
+                                                                    <td><button  onClick={event => handleChange(event, book[i]._id)} >booked</button> </td>
                                                                 </tr>
                                                             );
                                                         c++;
