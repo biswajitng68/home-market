@@ -138,7 +138,7 @@ const bookroom = async () => {
 {hoteldetail&&<><div className="text">{hoteldetail.name}</div>
         <div className='row hotelpage'>
         <div className='col-lg-8 col-md-6 hotelimg'>
-        <img src={boximg}></img>
+        <img src={hoteldetail.image||boximg}></img>
         </div>
         <div className='col-lg-4 col-md-6 hoteldetails'>
             <div className='d-flex justify-content-between'>

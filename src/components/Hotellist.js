@@ -80,8 +80,8 @@ const handleSubmit = async () => {
                        if(roomdetail){
                         for(let i=0;i<roomdetail.length;i++){
                         rows.push(
-                        <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2'><div  className='city p-2' onClick={()=>{navigate("../"+roomdetail[i]._id)}}>
-                <img src={boximg}></img>
+                        <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2 hotelcon'><div  className='city p-2' onClick={()=>{navigate("../"+roomdetail[i]._id)}}>
+                <img src={roomdetail[i].image||boximg}></img>
                     <div className='citydetails'>
                     <div className='citynamebox'><p className='citynamesp col'>{roomdetail[i].name}</p></div>
                     <div className='row hotelcontainer'>
