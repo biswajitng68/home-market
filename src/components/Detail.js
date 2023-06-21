@@ -12,16 +12,16 @@ export default function () {
         fetchbooking();
     }, [book]);
 
-    const [checked, setChecked] = useState([]);
+    //const [text, setChecked] = useState([]);
     const handleChange = (event, param1) => {
 
         if (window.confirm("Press a button!") == true) {
             //setChecked(true);
             checkout(param1);
             fetchbooking();
-            setChecked(false);
+           // setChecked(false);
         } else {
-            setChecked(true);
+            //setChecked(true);
         }
 
     };
@@ -83,11 +83,6 @@ export default function () {
                 <div className="tab-con">
                     <h4 id="heading">Current Booking</h4>
 
-                   
-
-                        
-
-                            <h2>now</h2>
                             <table className="table" id="table1">
 
                                 <thead>
@@ -110,8 +105,7 @@ export default function () {
                                                 let c = 0;
                                                 for (let i = 0; i < book.length; i++) {
                                                     if (book[i].status == "booked") {
-                                                        checked.push(true);
-                                                        items.push({ id: c, isOn: true });
+                                                       
                                                         rows.push
                                                             (
                                                                 <tr>
@@ -119,7 +113,7 @@ export default function () {
                                                                     <td>{book[i].user.name}</td>
                                                                     <td>{book[i].user.email}</td>
                                                                     <td>{book[i].user.mobile}</td>
-                                                                    <td>booked <input type="checkbox" checked={checked[c]} onChange={event => handleChange(event, book[i]._id)} /></td>
+                                                                    <td><button>booked</button>  onChange={event => handleChange(event, book[i]._id)} </td>
                                                                 </tr>
                                                             );
                                                         c++;
@@ -131,23 +125,7 @@ export default function () {
                                             return rows;
                                         })()
                                     }
-                                    {
-                                        (() => { checked.push(true); checked.push(true); })
-                                    }
-                                    <tr>
-                                        <td>100</td>
-                                        <td>Arko</td>
-                                        <td>ram@13mgmail.com</td>
-                                        <td>9991234567</td>
-                                        <td>booked <input type="checkbox" checked={checked[0]} onChange={event => handleChange(event, 1000011)} /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>100</td>
-                                        <td>Rajo</td>
-                                        <td>sam@13mgmail.com</td>
-                                        <td>9991234567</td>
-                                        <td>booked <input type="checkbox" checked={checked[1]} onChange={event => handleChange(event, 1000011)} /></td>
-                                    </tr>
+                                   
                                 </tbody>
                             </table>
 
