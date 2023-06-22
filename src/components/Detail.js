@@ -1,27 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import {  useParams} from 'react-router-dom';
+import LoadingBar from 'react-top-loading-bar';
 // import ToggleSwitch from '../components/ToggleSwitch';
 
 export default function Detail () {
     const params = useParams();
     const [book, Setbook] = useState();
-    // const [items, setItems] = useState([]);
-    //console.log(params.detail);
+    const ref = useRef(null);
+    
     const base_url = "https://room-rover-app-backend-mern.onrender.com";
     useEffect(() => {
         fetchbooking();
-    }, );
+    }, []);
 
-    //const [text, setChecked] = useState([]);
+    
     const handleChange = (event, param1) => {
 
         if (window.confirm("Press a button!") === true) {
-            //setChecked(true);
+          
             checkout(param1);
             fetchbooking();
-           // setChecked(false);
+           
         } else {
-            //setChecked(true);
+           
         }
 
     };
@@ -45,6 +46,7 @@ export default function Detail () {
         else {
             alert(json.message);
         }
+        window.location.reload();
     };
 
 
@@ -52,7 +54,7 @@ export default function Detail () {
 
     //-----------------------------------------------
     const fetchbooking = async () => {
-
+        ref.current.continuousStart();
         const response = await fetch(base_url + "/api//seller_booking_Details", {
             method: 'POST',
             crossDomain: true,
@@ -73,12 +75,13 @@ export default function Detail () {
         else {
             alert(json.message);
         }
+        ref.current.complete();
     }
     return (
         <>
 
             <section className="home">
-
+            <LoadingBar color='#0ff0f9' height={4} ref={ref} />
 
                 <div className="tab-con">
                     <h4 id="heading">Current Booking</h4>

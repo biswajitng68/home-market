@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect ,useRef} from "react";
 import { useNavigate } from "react-router-dom";
+import LoadingBar from 'react-top-loading-bar';
 import { Link } from 'react-router-dom';
 export default function Selhome() {
     const base_url = "https://room-rover-app-backend-mern.onrender.com";
 
     // const base_url=" http://localhost:4001";
-
-    //  const base_url=" http://localhost:4001";
    
-
+    const ref = useRef(null);
     const navigate = useNavigate();
     useEffect(() => {
 
@@ -79,7 +78,7 @@ export default function Selhome() {
     }, [sel1, sel])
 
     const handleSubmit = async () => {
-
+        ref.current.continuousStart();
         // http://localhost:6000  https://room-rover-app-backend-mern.onrender.com/api/seller_buildingDetails_type_City
         const response = await fetch(base_url + "/api/seller_buildingDetails_type_City", {
             method: 'POST',
@@ -101,6 +100,7 @@ export default function Selhome() {
         else {
             alert(json.message);
         }
+        ref.current.complete();
     }
 
 
@@ -108,6 +108,7 @@ export default function Selhome() {
     return (
         <>
             <section className="home">
+            <LoadingBar color='#0ff0f9' height={4} ref={ref} />
                 <div className="row">
                     <div className="dropdown col">
                         <div className="form-floating mb-3 dropdown col">
@@ -157,7 +158,7 @@ export default function Selhome() {
 
                 </div>
                 
-                <div className='row hoteldetcontainer' >
+                <div className='hoteldetcontainer' >
                     {
                         (() => {
                             let rows = [];
@@ -167,26 +168,20 @@ export default function Selhome() {
                                     rows.push(
                                         <div className="hotel-con row" value={des[i]._id} to="/detail" onClick={(e)=>{navigate("../seller/"+des[i]._id)}}>
 
-                                            
-                                                <div className=" contain col row ">
-                            
-                                                    <label className="lab-btn p-2  " >Apartment Name : {des[i].name} </label>
-                                                    <label className="lab-btn p-2  " >City :    {des[i].city} </label>
-                                                    <label className="lab-btn p-2  " >Building-Type :{des[i].buildingType} </label>
-                                                    <label className="lab-btn p-2  " >Address :    {des[i].address} </label>
-                                                    <label className=" lab-btn p-2  " >Room Description : {des[i].description}</label>
-                                                    <label className=" lab-btn p-2  " >Contact No : {des[i].mobile} </label>
-                                                    <label className=" lab-btn p-2  " >No of Rooms :  {des[i].roomCount} </label>
-                                               </div>
-                                                <div  className="im col">
-                                                   <img className="hotel-image " style={{ objectFit: 'contain' }} src={des[i].image}/>
+                                                <div  className="im ">
+                                                   <img className="hotel-image "  src={des[i].image}/>
                                                 </div> 
-                                                   
-                                               
-                                            
-
-
-                                            
+                                                <div className=" contain  row ">
+                            
+                                                    <label className="lab-btn p-1  " >Apartment Name : {des[i].name} </label>
+                                                    <label className="lab-btn p-1  " >City :    {des[i].city} </label>
+                                                    <label className="lab-btn p-1  " >Building-Type :{des[i].buildingType} </label>
+                                                    <label className="lab-btn p-1  " >Address :    {des[i].address} </label>
+                                                    <label className=" lab-btn p-1  " >Room Description : {des[i].description}</label>
+                                                    <label className=" lab-btn p-1  " >Contact No : {des[i].mobile} </label>
+                                                    <label className=" lab-btn p-1  " >No of Rooms :  {des[i].roomCount} </label>
+                                               </div>
+                                                
 
                                         </div>
                                     );
