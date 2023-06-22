@@ -21,6 +21,7 @@ import Changepass from './components/Changepass';
 import Authstate from './context/Authstate';
 import Typewisehotel from './components/Typewisehotel';
 import Detail from './components/Detail';
+import About from './components/About';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -41,6 +42,7 @@ root.render(
           <Route path="otp" element={<Otpverify/>} />
           <Route path="forgotpass" element={<Forgotpassword/>} />
           <Route path="changepass" element={<Changepass/>} />
+          <Route path="about" element={<About/>} />
         </Route>
         <Route element={<Selnav/>}>
         <Route path="selprofile" element={<Selprofile />} />

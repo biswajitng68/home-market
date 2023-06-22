@@ -427,6 +427,10 @@ body.dark .home .text{
         height: 100vh;
         --close_home_width: calc(100%);
     }
+    .hometext{
+        background-color: #1e3496;
+        border-radius: 2px;
+    }
   }
 
  /* my code end here RKS*/
@@ -449,7 +453,9 @@ body.dark .home .text{
     width: fit-content;
 }
 .citynamebox{
+    text-align: center;
     margin: auto;
+    min-width: 100px;
     width: fit-content;
     padding: 10px;
     background-color: #0b162096;
@@ -743,3 +749,87 @@ font-family: 'Teko', sans-serif;
     margin-top: 5px;
     margin-bottom: 15px;
 }
+
+.about{
+    background-color: #00cdd4;
+    padding: 2%;
+    border-radius: 2%;
+}
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    animation: fadeIn 1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-title {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    animation: slideInLeft 1s ease;
+    margin-bottom: 20px;
+  }
+  
+  .about-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    animation: fadeInUp 1s ease;
+  }
+  
+  .about-description p {
+    margin-bottom: 10px;
+  }
+  
+  .about-description ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  
+  .about-description li {
+    margin-bottom: 5px;
+  }
+  
+ 
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+ 
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+    

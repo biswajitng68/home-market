@@ -81,10 +81,10 @@ console.log(localStorage.getItem("authtoken"));
                     </li>}
 
                     <li className="nav-link">
-                        <a href="#">
+                    <Link to="../about">
                         <i class='bx bx-info-circle icon'></i>
                             <span className="text nav-text">About</span>
-                        </a>
+                        </Link>
                     </li>
 
                 </ul>
