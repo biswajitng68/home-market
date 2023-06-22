@@ -48,42 +48,42 @@ console.log(localStorage.getItem("authtoken"));
                     <li className="nav-link">
                         <Link to="../">
                             <i className='bx bx-home-alt icon' ></i>
-                            <span className="text nav-text">Home</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>Home</span>
                         </Link>
                     </li>
 
                     <li className="nav-link">
                         <Link to="../hotellist">
                         <i class='bx bxs-category icon'></i>
-                            <span className="text nav-text">All rooms</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>All rooms</span>
                         </Link>
                     </li>
 
                     <li className="nav-link">
                         <Link to="../cityhotels">
                             <i class='bx bxs-city icon' ></i>
-                            <span className="text nav-text">All cities</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>All cities</span>
                         </Link>
                     </li>
 
                     <li className="nav-link">
                         <Link to="../typehotels">
                         <i class='bx bx-building icon'></i>
-                            <span className="text nav-text">All roomtypes</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>All roomtypes</span>
                         </Link>
                     </li>
 
                     {auth.userlogin&&<li className="nav-link">
                         <Link to="../genprofile">
                         <i class='bx bx-user icon'></i>
-                            <span className="text nav-text">Profile</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>Profile</span>
                         </Link>
                     </li>}
 
                     <li className="nav-link">
                         <a href="#">
                         <i class='bx bx-info-circle icon'></i>
-                            <span className="text nav-text">About</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>About</span>
                         </a>
                     </li>
 

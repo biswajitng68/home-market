@@ -260,6 +260,14 @@ body.dark .sidebar header .toggle{
     transition: var(--tran-03);
 }
 
+    .sidebar li a:focus{
+        background-color: var(--primary-color);
+    }
+    .sidebar li a:focus .icon,
+    .sidebar li a:focus .text{
+        color: var(--sidebar-color);
+    }
+
 
 .sidebar li a:hover{
     background-color: var(--primary-color);
@@ -651,6 +659,11 @@ body.dark .home .text{
     color: white;
     background-color: #94a2e4;
 }
+@media(max-width:400px){
+    .table{
+        font-size: 8px;
+    }
+}
 tbody{
     background-color: #4F5984;
 }
@@ -733,6 +746,11 @@ font-family: 'Teko', sans-serif;
     grid-gap:25px;
     overflow: hidden;
 }
+@media(max-width:400px){
+    .hoteldetcontainer{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
 .btn-sub2 {
     border-radius: 8px;
     background-color: #0966fd;
@@ -743,3 +761,4 @@ font-family: 'Teko', sans-serif;
     margin-top: 5px;
     margin-bottom: 15px;
 }
+

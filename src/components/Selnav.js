@@ -46,7 +46,7 @@ useEffect(() => {
                     <li className="nav-link">
                         <Link to="../selhome">
                             <i className='bx bx-home-alt icon' ></i>
-                            <span className="text nav-text">Dashboard</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>Dashboard</span>
                         </Link>
                     </li>
 
@@ -57,21 +57,21 @@ useEffect(() => {
                     <li className="nav-link">
                         <Link to="../addroom">
                         <i class='bx bx-building icon'></i>
-                            <span className="text nav-text">Add New Rooms</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>Add New Rooms</span>
                         </Link>
                     </li>
 
                     <li className="nav-link">
                         <Link to="../selprofile">
                         <i class='bx bx-user icon'></i>
-                            <span className="text nav-text">Profile</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>Profile</span>
                         </Link>
                     </li>
 
                     <li className="nav-link">
                         <a href="#">
                         <i class='bx bx-info-circle icon'></i>
-                            <span className="text nav-text">About</span>
+                            <span className="text nav-text" onClick={()=>{setClose(true)}}>About</span>
                         </a>
                     </li>
 
