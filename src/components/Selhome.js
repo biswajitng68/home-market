@@ -166,7 +166,7 @@ export default function Selhome() {
                             if (des) {
                                 for (let i = 0; i < des.length; i++) {
                                     rows.push(
-                                        <div className="hotel-con row" value={des[i]._id} to="/detail" onClick={(e)=>{navigate("../seller/"+des[i]._id)}}>
+                                        <div className="hotel-con " value={des[i]._id} to="/detail" >
 
                                                 <div  className="im ">
                                                    <img className="hotel-image "  src={des[i].image}/>
@@ -180,7 +180,9 @@ export default function Selhome() {
                                                     <label className=" lab-btn p-1  " >Room Description : {des[i].description}</label>
                                                     <label className=" lab-btn p-1  " >Contact No : {des[i].mobile} </label>
                                                     <label className=" lab-btn p-1  " >No of Rooms :  {des[i].roomCount} </label>
-                                               </div>
+                                                </div>
+                                                    <button className=" btn-sub2" onClick={(e)=>{navigate("../seller/"+des[i]._id)}} >Booking Details</button>
+                                               
                                                 
 
                                         </div>
