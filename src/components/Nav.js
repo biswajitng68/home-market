@@ -84,7 +84,7 @@ console.log(localStorage.getItem("authtoken"));
                     <Link to="../about">
                         <i class='bx bx-info-circle icon'></i>
                             <span className="text nav-text" onClick={()=>{setClose(true)}}>About</span>
-                        </a>
+                        </Link>
                     </li>
 
                 </ul>
