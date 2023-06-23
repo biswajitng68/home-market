@@ -77,7 +77,7 @@ export default function Home(){
             </div>
         </div>
         <div className='container-fluid'>
-            <h3 className='text'>Check citywise</h3>
+            <h3 className='text hometext'>Cities</h3>
             <div className='row p-2 hotelcontainer'>
                     {
                     (()=>{
@@ -86,7 +86,7 @@ export default function Home(){
                        if(citydetail){
                         for(let i=0;i<4;i++){
                         rows.push(
-                        <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2' onClick={()=>{auth.setsearchtype("");auth.setsearchcity(citydetail[i]._id);navigate("./hotellist")}}><div  className='city p-2'>
+                        <div className='col-lg-3 col-md-4 col-sm-6 col-12 p-2' onClick={()=>{auth.setsearchtype("");auth.setsearchcity(citydetail[i]._id);navigate("./hotellist")}}><div  className='city p-2'>
                 <img src={boximg}></img>
                     <div className='citydetails'>
                     <div className='citynamebox'><p className='citynamesp col'>City: {citydetail[i]._id}</p></div>
@@ -100,7 +100,7 @@ export default function Home(){
                     }
             </div>
             
-            <h3 className='text'>Room types</h3>
+            <h3 className='text hometext'>Buildings</h3>
             <div className='row p-2 hotelcontainer'>
                     {
                     (()=>{
@@ -109,7 +109,7 @@ export default function Home(){
                        if(typedetail){
                         for(let i=0;i<4;i++){
                         rows.push(
-                        <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-2'onClick={()=>{auth.setsearchcity("");auth.setsearchtype(typedetail[i]._id);navigate("./hotellist")}}><div  className='city p-2'>
+                        <div className='col-lg-3 col-md-4 col-sm-6 col-12 p-2'onClick={()=>{auth.setsearchcity("");auth.setsearchtype(typedetail[i]._id);navigate("./hotellist")}}><div  className='city p-2'>
                 <img src={boximg}></img>
                     <div className='citydetails'>
                     <div className='citynamebox'><p className='citynamesp col'>Type: {typedetail[i]._id}</p></div>
