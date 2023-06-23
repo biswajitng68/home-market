@@ -787,15 +787,16 @@ font-family: 'Teko', sans-serif;
 }
 
 .about{
-    background-color: #00cdd4;
+    
     padding: 2%;
     border-radius: 2%;
 }
 .about-container {
+
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f7f7f7;
+    background-color: #00cdd4;
     border: 1px solid #ccc;
     border-radius: 5px;
     animation: fadeIn 1s ease;
@@ -830,8 +831,20 @@ font-family: 'Teko', sans-serif;
   .about-description li {
     margin-bottom: 5px;
   }
-  
- 
+  .aboutsp{
+    border: 1.5px solid black;
+    background-image: linear-gradient(120deg, #000302,#00e3ff);
+    color: white;
+    border-radius: 4px;
+    padding: 4px;
+  }
+ .aboutfe{
+    border: 1.5px solid black;
+    background-image: linear-gradient(21deg, #a7b459,#e40de1);
+    color: rgb(2, 0, 0);
+    border-radius: 4px;
+    padding: 4px;
+ }
   
   @keyframes fadeIn {
     0% {

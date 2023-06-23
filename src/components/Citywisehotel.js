@@ -10,6 +10,7 @@ export default function Citywisehotel() {
     const [citydetail, setcitydetail] = useState();
     const auth=useContext(AuthContext);
     const navigate=useNavigate();
+    const cityimage=["https://static.toiimg.com/thumb/imgsize-123456,msid-75752152,width-600,resizemode-4/75752152.jpg","https://qph.cf2.quoracdn.net/main-qimg-c3b0ec8cf692c84ac4e7f4299b269671-lq","https://www.financialexpress.com/wp-content/uploads/2020/03/14-6.jpg","https://www.holidify.com/images/cmsuploads/compressed/Jaipur_20200503234720.jpg","https://www.financialexpress.com/wp-content/uploads/2020/05/Lockdown-Representational-4.jpg?w=660","https://qph.cf2.quoracdn.net/main-qimg-b169c4b76f0710c72384e3ae9226bcaa-lq","https://images.livemint.com/rf/Image-621x414/LiveMint/Period1/2014/05/27/Photos/urbanisation%202-k4t--621x414@LiveMint.jpg","https://www.thoughtco.com/thmb/eBSwH-tj1KRcdosV1k8O3Vi1k_U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mumbai-skyline-from-malabar-hill-mumbai-maharashtra-india-asia-547416209-58b9cb8b5f9b58af5ca70b8e.jpg"]
     const ref=useRef(null);
     useEffect(() => {
         handleSubmit();
@@ -54,7 +55,7 @@ export default function Citywisehotel() {
                                     for (let i = 0; i < citydetail.length; i++) {
                                         rows.push(
                                             <div className='col-lg-3 col-md-4 col-sm-6 col-12 p-2' onClick={()=>{auth.setsearchtype("");auth.setsearchcity(citydetail[i]._id);navigate("../hotellist")}}><div className='city p-2'>
-                                                <img src={boximg}></img>
+                                                <img src={cityimage[i%8]}></img>
                                                 <div className='citydetails'>
                                                     <div className='citynamebox'><p className='citynamesp col'>City: {citydetail[i]._id}</p></div>
                                                     <div className='row'>

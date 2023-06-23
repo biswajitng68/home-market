@@ -9,6 +9,7 @@ export default function Typewisehotel(){
     const auth=useContext(AuthContext);
     const navigate=useNavigate();
     const ref=useRef(null);
+    const typeimage=["https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/itemimages/18/61/186141_v1.jpeg","https://res.cloudinary.com/simplotel/image/upload/w_5000,h_3333/x_0,y_260,w_5000,h_2813,c_crop,q_80,fl_progressive/w_600,h_337,f_auto,c_fit/summit-jungle-lodge-lansdowne/DSC04178_lmk62s","https://cdn.junglelodges.com/uploads/2020/03/2-50.jpg","https://i0.wp.com/pediaa.com/wp-content/uploads/2020/11/Difference-Between-Lodge-and-Guest-House_1.jpg?resize=550%2C334&ssl=1"]
 useEffect(()=>{
 handleSubmit();
 },[])
@@ -52,7 +53,7 @@ const handleSubmit = async () => {
                         for(let i=0;i<typedetail.length;i++){
                         rows.push(
                         <div className='col-lg-3 col-md-4 col-sm-6 col-12 p-2' onClick={()=>{auth.setsearchcity("");auth.setsearchtype(typedetail[i]._id);navigate("../hotellist");}}><div  className='city p-2'>
-                <img src={boximg}></img>
+                <img src={typeimage[i%4]}></img>
                     <div className='citydetails'>
                     <div className='citynamebox'><p className='citynamesp col'>Type: {typedetail[i]._id}</p></div>
                     <div className='row'>
