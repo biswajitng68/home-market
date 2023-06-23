@@ -181,7 +181,15 @@ export default function Selhome() {
                                                     <label className=" lab-btn p-1  " >Contact No : {des[i].mobile} </label>
                                                     <label className=" lab-btn p-1  " >No of Rooms :  {des[i].roomCount} </label>
                                                 </div>
-                                                    <button className=" btn-sub2" onClick={(e)=>{navigate("../seller/"+des[i]._id)}} >Booking Details</button>
+                                                <div className="button-group">
+                                               
+                                                <button className=" btn-sub2" onClick={(e)=>{navigate("../seller/"+des[i]._id)}} >Booking Details</button>
+                                                
+                                                <i className='bx bxs-edit update' onClick={(e)=>{navigate("../update/"+des[i]._id)}}></i>
+                                               
+                                                </div>
+                                                   
+                                                   
                                                
                                                 
 

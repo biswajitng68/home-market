@@ -21,7 +21,7 @@ import Changepass from './components/Changepass';
 import Authstate from './context/Authstate';
 import Typewisehotel from './components/Typewisehotel';
 import Detail from './components/Detail';
-
+import Upadateroom from './components/Updateroom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -47,6 +47,7 @@ root.render(
         <Route path="addroom" element={<Addroom />} />
         <Route path="selhome" element={<Selhome />} />
         <Route path="seller/:detail" element={<Detail />} />
+        <Route path="update/:detail" element={<Upadateroom />} />
         </Route>
     </Routes>
     </Authstate>

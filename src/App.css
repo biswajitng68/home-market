@@ -632,6 +632,9 @@ body.dark .home .text{
         top: -15px;
         border-radius: 3% 3% 0 0;
     }
+    .tab-con{
+        --pad:20px;
+    }
 }
 
 .alert{
@@ -659,9 +662,13 @@ body.dark .home .text{
     color: white;
     background-color: #94a2e4;
 }
-@media(max-width:400px){
+@media(max-width:450px){
     .table{
-        font-size: 8px;
+        font-size: 9.3px;
+        margin:2px;
+    }
+    .tab-con{
+        --pad:1px;
     }
 }
 tbody{
@@ -719,7 +726,7 @@ tbody{
 }
 
 .tab-con{
-    padding: 20px;
+    padding: var(--pad);
 }
 
 /* selhome cards*/
@@ -733,9 +740,9 @@ font-family: 'Teko', sans-serif;
     flex-direction: row;
     border-radius: 10px;
    padding: 10px;
-  background-color: rgb(178 199 204 / 15%);;
+  background-color: rgba(33, 192, 231, 0.15);;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border: 0.02px solid rgb(88, 88, 88);
+
 }
 
 .hoteldetcontainer{
@@ -754,11 +761,20 @@ font-family: 'Teko', sans-serif;
 .btn-sub2 {
     border-radius: 8px;
     background-color: #0966fd;
+    color: #f7f7f7;
     border: none;
-    padding: 2px;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 5px;
-    margin-bottom: 15px;
+    padding: 2px 4px;
+  
+    
+    margin:auto; 
 }
 
+.button-group {
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+ 
+  }
+.update{
+   margin: auto;
+}
