@@ -16,7 +16,7 @@ export default function Detail () {
     
     const handleChange = (event, param1) => {
 
-        if (window.confirm("Press a button!") === true) {
+        if (window.confirm("Are you sure to checkout the User") === true) {
           
             checkout(param1);
             fetchbooking();

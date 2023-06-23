@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
             navigate("../selhome");
         }
         
-    }, 50);
+    }, 1000);
      
 }
 

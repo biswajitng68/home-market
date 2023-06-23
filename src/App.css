@@ -85,7 +85,7 @@ body{
 }
 
 body.dark{
-    --body-color: #18191a;
+    --body-color: #90979e;
     --sidebar-color: #0e1012;
     --primary-color: #203b56;
     --primary-color-light: #3a3b3c;
@@ -776,6 +776,7 @@ font-family: 'Teko', sans-serif;
 }
 
 
+
 .button-group {
     height: 40px;
     display: flex;
@@ -785,6 +786,15 @@ font-family: 'Teko', sans-serif;
 .update{
    margin: auto;
 }
+
+.delete{
+    margin: auto; 
+}
+.bt{
+    width:50%;
+    margin: auto;
+}
+
 
 .about{
     
