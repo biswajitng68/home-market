@@ -786,6 +786,11 @@ font-family: 'Teko', sans-serif;
    margin: auto;
 }
 
+.delete{
+    margin: auto; 
+}
+
+
 .about{
     background-color: #00cdd4;
     padding: 2%;

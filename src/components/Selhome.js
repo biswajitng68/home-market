@@ -76,6 +76,43 @@ export default function Selhome() {
     useEffect(() => {
         handleSubmit();
     }, [sel1, sel])
+    ///deleteBuilding
+    const handeldelete=async (event, param1) => {
+       
+        if (window.confirm("Are you sure you want to delete the building") === true) {
+          
+            console.log("delete");
+            const response = await fetch(base_url + "/api/deleteBuilding", {
+                method: 'DELETE',
+                crossDomain: true,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: "application/json",
+                    "Access-Control-Allow-Origin": "*",
+    
+                },
+    
+                body: JSON.stringify({ token: String(localStorage.getItem("sellerauthtoken")),building_id:param1  })
+            });
+            const json = await response.json()
+            if (json.success) {
+    
+                console.log(json.message);
+                window.location.reload();
+            }
+            else {
+                alert(json.message);
+            }
+           
+        } else {
+           
+        }
+        
+        
+    }
+
+
+
 
     const handleSubmit = async () => {
         ref.current.continuousStart();
@@ -186,6 +223,7 @@ export default function Selhome() {
                                                 <button className=" btn-sub2" onClick={(e)=>{navigate("../seller/"+des[i]._id)}} >Booking Details</button>
                                                 
                                                 <i className='bx bxs-edit update' onClick={(e)=>{navigate("../update/"+des[i]._id)}}></i>
+                                                <i className='bx bxs-trash delete' onClick={(e)=>{handeldelete(e,des[i]._id)}}></i>
                                                
                                                 </div>
                                                    
