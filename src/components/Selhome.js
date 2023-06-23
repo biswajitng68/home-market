@@ -209,14 +209,27 @@ export default function Selhome() {
                                                    <img className="hotel-image "  src={des[i].image}/>
                                                 </div> 
                                                 <div className=" contain  row ">
-                            
-                                                    <label className="lab-btn p-1  " >Apartment Name : {des[i].name} </label>
-                                                    <label className="lab-btn p-1  " >City :    {des[i].city} </label>
-                                                    <label className="lab-btn p-1  " >Building-Type :{des[i].buildingType} </label>
-                                                    <label className="lab-btn p-1  " >Address :    {des[i].address} </label>
-                                                    <label className=" lab-btn p-1  " >Room Description : {des[i].description}</label>
-                                                    <label className=" lab-btn p-1  " >Contact No : {des[i].mobile} </label>
-                                                    <label className=" lab-btn p-1  " >No of Rooms :  {des[i].roomCount} </label>
+                                                <div className="button-group">
+                                                <label className="bt " >Apartment Name</label> <label className="bt "> {des[i].name} </label>
+                                                </div>
+                                                <div className="button-group">
+                                                <label className="bt " >City</label> <label className="bt ">  {des[i].city} </label>
+                                                </div>
+                                                <div className="button-group">
+                                                <label className="bt " >Building-Type</label> <label className="bt ">  {des[i].buildingType} </label>
+                                                </div>
+                                                <div className="button-group">
+                                                <label className="bt " >Address</label> <label className="bt ">  {des[i].address} </label>
+                                                </div>
+                                                <div className="button-group">
+                                                <label className="bt " >Room Description</label> <label className="bt ">  {des[i].description} </label>
+                                                </div>
+                                                <div className="button-group">
+                                                <label className="bt " >Contact No</label> <label className="bt ">  {des[i].mobile}  </label>
+                                                </div>
+                                                <div className="button-group">
+                                                <label className="bt " >No of Rooms</label> <label className="bt ">  {des[i].roomCount}  </label>
+                                                </div>
                                                 </div>
                                                 <div className="button-group">
                                                

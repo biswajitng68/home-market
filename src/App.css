@@ -790,6 +790,10 @@ font-family: 'Teko', sans-serif;
 .delete{
     margin: auto; 
 }
+.bt{
+    width:50%;
+    margin: auto;
+}
 
 
 .about{
