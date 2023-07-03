@@ -147,6 +147,9 @@ const handleSubmit = async (e) => {
                 <div id='addroombg'>
                     <div className="p-5">
                         <div className="room-details my-3">
+                        <div className="hotel-image" style={{textAlign:"center"}}>
+                        <img   src={roominfo[0].image} alt='home'/>
+                                </div>
                             <div className="row"><label className="lb col" >Apartment Name </label>
                                 <input className="box col"  onChange={onchange} name='name' value={roominfo[0].name} placeholder="name" required  />
                             </div>
@@ -178,10 +181,7 @@ const handleSubmit = async (e) => {
                             </div>                       
                             <div className="row"><label className="lb col" >Room Images </label>
                              <div className=" box col">
-                             <input   type="file" accept='.jpeg, .png, .jpg'  name="image" onChange={convertToBase64}  />
-                             
-                             
-                                                      <img width={100} hieght={100} src={roominfo[0].image} alt='home'/>
+                             <input   type="file" accept='.jpeg, .png, .jpg'  name="image" onChange={convertToBase64}  />                            
                                                     
                              </div>
                              <div className="row" id="container">

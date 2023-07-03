@@ -536,13 +536,7 @@ body.dark .home .text{
 }
 
 
-#addroombg{
-    background-image: url("addroombg.png") ;
-    background-repeat: no-repeat;
-    height: 100vh;
-    background-size: 100%;
-    
-    }
+
 
     .room-details {
         align-items: center;
@@ -572,6 +566,10 @@ body.dark .home .text{
       }
       .bx{
         font-size: 24.8px;
+        text-align: center;
+      }
+      .bx1{
+        text-align: center;
       }
       
       #container {
@@ -759,7 +757,13 @@ font-family: 'Teko', sans-serif;
     grid-gap:25px;
     overflow: hidden;
 }
-@media(max-width:400px){
+
+@media(max-width:1200px){
+    .hoteldetcontainer{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media(max-width:600px){
     .hoteldetcontainer{
         grid-template-columns: repeat(1,1fr);
     }
@@ -778,9 +782,10 @@ font-family: 'Teko', sans-serif;
 
 
 .button-group {
-    height: 40px;
+    margin: 6px;
     display: flex;
     flex-wrap: wrap;
+
  
   }
 .update{
@@ -891,5 +896,6 @@ font-family: 'Teko', sans-serif;
       transform: translateY(0);
     }
   }
+  
     
 

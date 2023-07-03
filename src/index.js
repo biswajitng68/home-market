@@ -46,15 +46,17 @@ root.render(
           <Route path="otp" element={<Otpverify/>} />
           <Route path="forgotpass" element={<Forgotpassword/>} />
           <Route path="changepass" element={<Changepass/>} />
-          <Route path="about" element={<About/>} />
+          {/* <Route path="about" element={<About/>} /> */}
         </Route>
         <Route element={<Selnav/>}>
         <Route path="selprofile" element={<Selprofile />} />
         <Route path="addroom" element={<Addroom />} />
         <Route path="selhome" element={<Selhome />} />
         <Route path="seller/:detail" element={<Detail />} />
-        <Route path="update/:detail" element={<Upadateroom />} />
+        <Route path="update/:detail" element={<Upadateroom />} />       
         </Route>
+        <Route path="about" element={<About/>} />
+
     </Routes>
     </Authstate>
     </BrowserRouter>
