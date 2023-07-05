@@ -19,7 +19,7 @@ export default function Updateroom() {
     const [counter, setCounter] = useState(1);
     const [image, setImage] = useState("");
     // add room api
-    const [roominfo, setRoominfo] = useState([{ name: "", city: " ", address: " ", mobile: "", buildingType: " ", roomdes: " ", price: " ", roomCount: 1, image: "" }]);
+    const [roominfo, setRoominfo] = useState([{ name: "", city: " ", address: " ", mobile: "", buildingType: " ", description: " ", price: " ", roomCount: 1, image: "" }]);
   
     //--------------------------------------------------------   
     function convertToBase64(e) {
@@ -82,7 +82,7 @@ export default function Updateroom() {
                 navigate("../selhome");
             }
 
-        }, 10000);
+        }, 3000);
 
     }
 
@@ -178,12 +178,12 @@ export default function Updateroom() {
                                         <div className="row">
                                             <label className="lb col" >
                                                 Type
-                                            </label><input className="box col" onChange={onchange} name='type' value={roominfo[0].buildingType} placeholder="type" required />
+                                            </label><input className="box col" onChange={onchange} name='buildingType' value={roominfo[0].buildingType} placeholder="type" required />
                                         </div>
                                         <div className="row">
                                             <label className="lb col" >
                                                 Description
-                                            </label><input className="box col" onChange={onchange} name="roomdes" value={roominfo[0].description} placeholder="roomdes" required />
+                                            </label><input className="box col" onChange={onchange} name="description" value={roominfo[0].description} placeholder="roomdes" required />
                                         </div>
                                         <div className="row">
                                             <label className="lb col" >Price </label>
