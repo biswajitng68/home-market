@@ -80,7 +80,7 @@ export default function Addroom() {
                 navigate("../selhome");
             }
 
-        }, 50);
+        }, 500);
 
     }
     const onchange = (e) => {

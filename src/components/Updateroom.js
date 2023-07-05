@@ -19,8 +19,8 @@ export default function Updateroom() {
     const [counter, setCounter] = useState(1);
     const [image, setImage] = useState("");
     // add room api
-    const [roominfo, setRoominfo] = useState([{ name: "", city: " ", address: " ", mobile: "", buildingType: " ", description: " ", price: " ", roomCount: 1, image: "" }]);
-    const [val, setval] = useState([{ name: "", city: " ", address: " ", mobile: "", type: " ", roomdes: " ", price: " ", roomCount: 1 }]);
+    const [roominfo, setRoominfo] = useState([{ name: "", city: " ", address: " ", mobile: "", buildingType: " ", roomdes: " ", price: " ", roomCount: 1, image: "" }]);
+  
     //--------------------------------------------------------   
     function convertToBase64(e) {
         console.log(e);
@@ -43,7 +43,7 @@ export default function Updateroom() {
 
         e.preventDefault();
 
-        console.log(roominfo);
+       
         console.log(counter);
         //http://localhost:4000/api/addBuilding  https://room-rover-app-backend-mern.onrender.com/api/addBuilding
         const response = await fetch(base_url + "/api/updateBuilding", {
@@ -82,7 +82,7 @@ export default function Updateroom() {
                 navigate("../selhome");
             }
 
-        }, 1000);
+        }, 10000);
 
     }
 
@@ -114,7 +114,7 @@ export default function Updateroom() {
 
             // setval(json.data);
             setRoominfo(json.data);
-
+            console.log(json.data);
 
         }
         else {
@@ -128,6 +128,7 @@ export default function Updateroom() {
     }
     const onchange = (e) => {
         setRoominfo([{ ...roominfo[0], [e.target.name]: e.target.value }])
+        console.log(roominfo);
     }
 
     console.log(roominfo.length);
