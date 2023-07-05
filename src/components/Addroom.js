@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-
+import logo from '../addroombg.png';
 
 
 export default function Addroom() {
@@ -99,17 +99,23 @@ export default function Addroom() {
                 <div>
                     <div id='addroombg'>
                         <div className="p-5">
-                            <div className="room-details my-3">
-                                <div className="room-image" style={{textAlign:"center"}}>
-                                <img width={100} hieght={100} src={image} alt='home' />
+                            <div className="room-details my-3 " >
+                                <div className=" addhomecont">
+                                <div className="left">
+                                
+                                    {
+                                        image&& <img className="hotel-image" src={image}  />
+                                    }
+                                    {
+                                        !image&& <img className="hotel-image" src={logo}  />
+                                    }
+                                <label htmlFor="upload" className="btn-sub" style={{textAlign:"center"}} >Upload </label>
+                                
+                                <input type="file" id="upload" accept='.jpeg, .png, .jpg' style={{display:"none"}} onChange={convertToBase64} />          
                                 </div>
+                                
+                                <div className="right">
                                
-                                <div className="row">
-                                <label className="lb col" >Room Images </label>
-                                    <div className=" box col">
-                                        <input type="file" accept='.jpeg, .png, .jpg' onChange={convertToBase64} />
-                                    </div>
-                                </div>
                                 <div className="row"><label className="lb col" >Apartment Name </label>
                                     <input className="box col" onChange={onchange} name='name' value={roominfo.name} placeholder="name" required />
                                 </div>
@@ -140,19 +146,23 @@ export default function Addroom() {
                                     <input className="box col" onChange={onchange} name="price" value={roominfo.price} placeholder="price" required />
                                 </div>
                                 <div className="row"><label className="lb col" >No of Rooms </label>
-                                    <div className="box" style={{ display: "flex", flexWrap: "wrap" }}>
-                                        <i className='bx bx-plus-circle col'  onClick={() => setCounter(counter + 1)}></i>
+                                    <div className="box col" style={{ display: "flex", flexWrap: "wrap" }}>
+                                        <i className='bx bx-plus-circle col' onClick={() => setCounter(counter + 1)}></i>
                                         <label className='bx1 col' >{counter}</label>
-                                        <i className='bx bx-minus-circle col'  onClick={() => { if (counter !== 1) { setCounter(counter - 1) } }}></i>
+                                        <i className='bx bx-minus-circle col' onClick={() => { if (counter !== 1) { setCounter(counter - 1) } }}></i>
                                     </div>
                                 </div>
-                                <div className="row">           
-                                    <div className="row" id="container">
+                                
+                                </div>
+                                </div>
+                               
+                                
+                                <div className="row" id="container">
                                         <button className=" btn-sub" onClick={handleSubmit} >Submit</button>
                                     </div>
-                                </div>
 
                             </div>
+                            
                         </div>
                     </div>
 

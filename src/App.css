@@ -546,23 +546,28 @@ body.dark .home .text{
         
         
         padding: 2%;
-        border-radius: 4%;
-        max-width: 500px;
+        border-radius: 5px;
+        /* max-width: 600px; */
+        max-width: 1000px;
       
 
       }
       .box{
-        float:right;
-        border:none;
-        border-radius: 8PX;
-        width:200px;
+        float: right;
+        border: none;
+        border-radius: 7px;
+        width: 200px;
+        font-family: sans-serif;
+        padding: 4px 15px;
       }
       .lb{
-        background-image: linear-gradient(50deg, #fd89fcba, #00f9f9cc);
         margin-right: 20px;
         border-radius: 10px;
-        width:150px;
+        width: 150px;
+        background-color: #fafafafa;
         text-align: center;
+        border: 1.4px solid #625c5c8c;
+        text-align: left;
       }
       .bx{
         font-size: 24.8px;
@@ -580,9 +585,13 @@ body.dark .home .text{
         
      }
      .btn-sub{
-        border-radius: 8px;
-        background-color: #6d86f5;
-        border:none;
+        
+    border-radius: 8px;
+    background-color: #1742ffdb;
+    border: none;
+    color: white;
+    padding: 3.5px;
+
      }
       .row{
         margin: 20px; 
@@ -719,8 +728,9 @@ tbody{
 .hotel-image {
     width: 100%;
    height: 100%;
-    padding:10px;
+    padding:20px;
     object-fit: fill;
+  
   
   border-radius: 15px;
 }
@@ -896,6 +906,31 @@ font-family: 'Teko', sans-serif;
       transform: translateY(0);
     }
   }
-  
+  input{
+    outline: none;
+  }
+ 
+  @media(min-width:950px){
+    .addhomecont
+    {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      
+    }
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .lable-update{
+    font-size: 14px;
+    font-family: sans-serif;
+  }
+
+
+
+
+ 
     
 
