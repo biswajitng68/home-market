@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import logo from '../addroombg.png';
+import logo from '../newaddroombg.png';
 
 
 export default function Addroom() {
@@ -104,14 +104,15 @@ export default function Addroom() {
                                 <div className="left">
                                 
                                     {
-                                        image&& <img className="hotel-image" src={image}  />
+                                        image&&<label htmlFor="upload" style={{height:"100%"}} ><img className="hotel-image" src={image}  /></label>
                                     }
                                     {
-                                        !image&& <img className="hotel-image" src={logo}  />
+                                        !image&&<label htmlFor="upload" style={{height:"100%"}} ><img className="hotel-image" src={logo}  /></label>
                                     }
-                                <label htmlFor="upload" className="btn-sub" style={{textAlign:"center"}} >Upload </label>
-                                
-                                <input type="file" id="upload" accept='.jpeg, .png, .jpg' style={{display:"none"}} onChange={convertToBase64} />          
+                                    
+                                {/* <label htmlFor="upload" className="btn-sub" style={{textAlign:"center"}} >Upload </label>
+                                 */}
+                                <input type="file"  id="upload" accept='.jpeg, .png, .jpg' style={{display:"none"}} onChange={convertToBase64} />          
                                 </div>
                                 
                                 <div className="right">
