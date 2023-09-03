@@ -110,8 +110,7 @@ export default function Addroom() {
                                         !image&&<label htmlFor="upload" style={{height:"100%"}} ><img className="hotel-image" src={logo}  /></label>
                                     }
                                     
-                                {/* <label htmlFor="upload" className="btn-sub" style={{textAlign:"center"}} >Upload </label>
-                                 */}
+                                
                                 <input type="file"  id="upload" accept='.jpeg, .png, .jpg' style={{display:"none"}} onChange={convertToBase64} />          
                                 </div>
                                 

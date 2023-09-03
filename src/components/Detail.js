@@ -82,8 +82,8 @@ export default function Detail () {
 
             <section className="home">
             <LoadingBar color='#0ff0f9' height={4} ref={ref} />
-
-                <div className="tab-con">
+                
+                    <div className="tab-con">
                     <h4 id="heading">Current Booking</h4>
 
                             <table className="table" id="table1">
@@ -184,6 +184,8 @@ export default function Detail () {
 
 
                         </div>
+                   
+              
 
 
 

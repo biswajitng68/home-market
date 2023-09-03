@@ -153,7 +153,7 @@ export default function Updateroom() {
                                 <div className=" addhomecont">
                                     <div className='left' style={{height:"100%"}}>
                                         
-                                       <label  htmlFor='update-upload' style={{height:"100%"}} ><img className="hotel-image"  src={roominfo[0].image} alt='home' /> </label>
+                                       <label  htmlFor='update-upload' style={{height:"100%",width:'100%'}} ><img className="hotel-image"  src={roominfo[0].image} alt='home' /> </label>
                                            
                                                 <input type="file" accept='.jpeg, .png, .jpg' name="image" id='update-upload' style={{display:"none"}} onChange={convertToBase64} />
 
