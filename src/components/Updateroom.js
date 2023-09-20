@@ -20,8 +20,9 @@ export default function Updateroom() {
     const [image, setImage] = useState("");
     // add room api
     const [roominfo, setRoominfo] = useState([{ name: "", city: " ", address: " ", mobile: "", buildingType: " ", description: " ", price: " ", roomCount: 1, image: "" }]);
-    const [val, setval] = useState([{ name: "", city: " ", address: " ", mobile: "", type: " ", roomdes: " ", price: " ", roomCount: 1 }]);
-    //--------------------------------------------------------   
+  
+    //--------------------------------------------------------  
+   
     function convertToBase64(e) {
         console.log(e);
         var reader = new FileReader();
@@ -43,46 +44,48 @@ export default function Updateroom() {
 
         e.preventDefault();
 
-        console.log(roominfo);
-        console.log(counter);
-        //http://localhost:4000/api/addBuilding  https://room-rover-app-backend-mern.onrender.com/api/addBuilding
-        const response = await fetch(base_url + "/api/updateBuilding", {
+        if (window.confirm("Are you want to update the Building Info") == true) {
+            const response = await fetch(base_url + "/api/updateBuilding", {
 
-            method: 'POST',
-            crossDomain: true,
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: "application/json",
-                "Access-Control-Allow-Origin": "*",
-
-            },
-
-            body: JSON.stringify({ token: localStorage.getItem("sellerauthtoken"), building_id: params.detail, name: roominfo[0].name, city: roominfo[0].city, address: roominfo[0].address, mobile: roominfo[0].mobile, buildingType: roominfo[0].buildingType, description: roominfo[0].description, price: Number(roominfo[0].price), roomCount: Number(counter), base64: roominfo[0].image })
-        });
-        const json = await response.json()
-        if (json.success) {
-            // Save the auth token and redirect
-            console.log(json.message);
-            setalm(json.message)
-            setalert(true);
-
-
-
-
-        }
-        else {
-            console.log(json.error);
-            setalm(json.error)
-            setalert(true);
-        }
-
-        setTimeout(() => {
-            setalert(false);
+                method: 'POST',
+                crossDomain: true,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: "application/json",
+                    "Access-Control-Allow-Origin": "*",
+    
+                },
+    
+                body: JSON.stringify({ token: localStorage.getItem("sellerauthtoken"), building_id: params.detail, name: roominfo[0].name, city: roominfo[0].city, address: roominfo[0].address, mobile: roominfo[0].mobile, buildingType: roominfo[0].buildingType, description: roominfo[0].description, price: Number(roominfo[0].price), roomCount: Number(counter), base64: roominfo[0].image })
+            });
+            const json = await response.json()
             if (json.success) {
-                navigate("../selhome");
+                // Save the auth token and redirect
+                console.log(json.message);
+                setalm(json.message)
+                setalert(true);
+    
+    
+    
+    
             }
-
-        }, 1000);
+            else {
+                console.log(json.error);
+                setalm(json.error)
+                setalert(true);
+            }
+    
+            setTimeout(() => {
+                setalert(false);
+                if (json.success) {
+                    navigate("../selhome");
+                }
+    
+            }, 3000);
+        }
+        
+        //http://localhost:4000/api/addBuilding  https://room-rover-app-backend-mern.onrender.com/api/addBuilding
+     
 
     }
 
@@ -114,7 +117,7 @@ export default function Updateroom() {
 
             // setval(json.data);
             setRoominfo(json.data);
-
+            console.log(json.data);
 
         }
         else {
@@ -128,6 +131,7 @@ export default function Updateroom() {
     }
     const onchange = (e) => {
         setRoominfo([{ ...roominfo[0], [e.target.name]: e.target.value }])
+        console.log(roominfo);
     }
 
     console.log(roominfo.length);
@@ -148,8 +152,8 @@ export default function Updateroom() {
                             <div className="room-details my-3 " >
                                 <div className=" addhomecont">
                                     <div className='left' style={{height:"100%"}}>
-                                        <img className="hotel-image" src={roominfo[0].image} alt='home' />
-                                       <label className="lb col" htmlFor='update-upload' >Room Images </label>
+                                        
+                                       <label  htmlFor='update-upload' style={{height:"100%",width:'100%'}} ><img className="hotel-image"  src={roominfo[0].image} alt='home' /> </label>
                                            
                                                 <input type="file" accept='.jpeg, .png, .jpg' name="image" id='update-upload' style={{display:"none"}} onChange={convertToBase64} />
 
