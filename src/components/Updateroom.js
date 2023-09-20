@@ -177,12 +177,12 @@ export default function Updateroom() {
                                         <div className="row">
                                             <label className="lb col" >
                                                 Type
-                                            </label><input className="box col" onChange={onchange} name='type' value={roominfo[0].buildingType} placeholder="type" required />
+                                            </label><input className="box col" onChange={onchange} name='buildingType' value={roominfo[0].buildingType} placeholder="type" required />
                                         </div>
                                         <div className="row">
                                             <label className="lb col" >
                                                 Description
-                                            </label><input className="box col" onChange={onchange} name="roomdes" value={roominfo[0].description} placeholder="roomdes" required />
+                                            </label><input className="box col" onChange={onchange} name="description" value={roominfo[0].description} placeholder="roomdes" required />
                                         </div>
                                         <div className="row">
                                             <label className="lb col" >Price </label>
