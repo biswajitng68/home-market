@@ -9,6 +9,8 @@ export default function Hotel(){
 const params =useParams();
 const [hoteldetail,sethoteldetail]=useState();
 const [wished,setwished]=useState(false);
+const [alert,setalert]=useState();
+var [alertmessage,setalm]=useState("Here is an alert");
 const ref=useRef(null);
 const nav=useNavigate();
 useEffect(()=>{
@@ -57,9 +59,21 @@ const remfromwishlist = async () => {
         body: JSON.stringify({building_id:params.hotel,token:localStorage.getItem("userauthtoken")})
     });
     const json = await response.json()
-    if(json.success)
+    if(json.success){
     setwished(false);
-    alert(json.message);
+    setalm(json.message);
+    setalert(true);
+            var x=json.message.length
+        }
+        else{
+            setalm(json.error)
+            setalert(true);
+            var x=json.error.length
+        }
+        setTimeout(() => {
+            setalert(false);
+            
+        }, 150*x);
     ref.current.complete();
 }
 
@@ -103,8 +117,19 @@ const wishlist = async () => {
     const json = await response.json()
     if(json.success){
         setwished(true);
-    }
-    alert(json.message);
+        setalm(json.message);
+        setalert(true);
+                var x=json.message.length
+            }
+            else{
+                setalm(json.error)
+                setalert(true);
+                var x=json.error.length
+            }
+            setTimeout(() => {
+                setalert(false);
+                
+            }, 150*x);
     ref.current.complete();
 }
 
@@ -124,9 +149,20 @@ const bookroom = async () => {
     });
     const json = await response.json()
     if(json.success){
-        nav("../genprofile")
-    }
-    alert(json.message);
+        setalm(json.message);
+        setalert(true);
+                var x=json.message.length
+            }
+            else{
+                setalm(json.error)
+                setalert(true);
+                var x=json.error.length
+            }
+            setTimeout(() => {
+                setalert(false);
+                if(json.success===true)
+                nav("../genprofile")
+            }, 150*x);
     ref.current.complete();
 }
 
@@ -136,6 +172,10 @@ const bookroom = async () => {
           <section className="home hotelsp" >
           <LoadingBar color='#f11946' height={4} ref={ref} />
 {hoteldetail&&<><div className="text">{hoteldetail.name}</div>
+{alert==true&&
+        <div className='d-flex justify-content-center aalert-container'>
+            <div className='d-flex alert rounded my-2'><i className='bx bx-bell  mx-1'></i><span className='alerttext'>{alertmessage}</span></div>
+        </div>}
         <div className='row hotelpage'>
         <div className='col-lg-8 col-md-6 hotelimg'>
         <img src={hoteldetail.image||boximg}></img>

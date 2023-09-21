@@ -53,10 +53,11 @@ const handleSubmit = async (e) => {
         setalm(json.message);
         if(!auth.forgotpass)
         localStorage.clear();
-
+        var x=json.message.length
     }
     else{
         setalm(json.error);
+        var x=json.error.length
     }
     setalert(true);
     setTimeout(() => {
@@ -70,7 +71,7 @@ const handleSubmit = async (e) => {
             navigate("../login");
         }
         
-    }, 10000);
+    }, 100*x);
     ref.current.complete()
 }
 

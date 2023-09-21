@@ -53,19 +53,20 @@ export default function Signup(){
             localStorage.setItem("usertype",credentials.user);
             setalm(json.message)
             setalert(true);
-            
+            var x=json.message.length
             
 
         }
         else{
             setalm(json.error)
             setalert(true);
+            var x=json.error.length
         }
         setTimeout(() => {
             setalert(false);
             if(json.success)
             navigate("../otp")
-        }, 10000);
+        }, 150*x);
         ref.current.complete();
     }
 

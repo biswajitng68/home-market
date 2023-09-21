@@ -19,7 +19,7 @@ export default function Updateroom() {
     const [counter, setCounter] = useState(1);
     const [image, setImage] = useState("");
     // add room api
-    const [roominfo, setRoominfo] = useState([{ name: "", city: " ", address: " ", mobile: "", buildingType: " ", description: " ", price: " ", roomCount: 1, image: "" }]);
+    const [roominfo, setRoominfo] = useState([{ name: "", city: "", address: "", mobile: "", buildingType: "", description: "", price: "", roomCount: 1, image: "" }]);
   
     //--------------------------------------------------------  
    

@@ -69,13 +69,14 @@ useEffect(()=>{
             // localStorage.setItem("usertype",credentials.user);
             setalm(json.message)
             setalert(true);
-            
+            var x=json.message.length
             
 
         }
         else{
             setalm(json.error)
             setalert(true);
+            var x=json.error.length
         }
         setTimeout(() => {
             setalert(false);
@@ -87,7 +88,7 @@ useEffect(()=>{
                 navigate("../selhome")
             }
             
-        }, 10000);
+        }, 150*x);
         ref.current.complete()
     }
 
