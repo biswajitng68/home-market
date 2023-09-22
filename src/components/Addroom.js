@@ -17,8 +17,8 @@ export default function Addroom() {
     const [counter, setCounter] = useState(1);
     const [image, setImage] = useState("");
     // add room api
-    const [roominfo, setRoominfo] = useState({ name: "", city: " ", address: " ", mobile: "", type: " ", roomdes: " ", price: " ", roomCount: 1 })
-    //--------------------------------------------------------   
+    const [roominfo, setRoominfo] = useState({ name: "", city: "", address: "", mobile: "", type: "", roomdes: "", price: "", roomCount: 1 })
+     
     function convertToBase64(e) {
         console.log(e);
         var reader = new FileReader();
@@ -117,7 +117,7 @@ export default function Addroom() {
                                 <div className="right">
                                
                                 <div className="row"><label className="lb col" >Apartment Name </label>
-                                    <input className="box col" onChange={onchange} name='name' value={roominfo.name}  required />
+                                    <input className="box col" onChange={onchange} name='name' value={roominfo.name} placeholder="name" required />
                                 </div>
                                 <div className="row">
                                     <label className="lb col" >
@@ -130,7 +130,7 @@ export default function Addroom() {
                                 <div className="row">
                                     <label className="lb col" >
                                         Contact
-                                    </label><input className="box col" onChange={onchange} name='mobile' value={roominfo.mobile} required />
+                                    </label><input className="box col" onChange={onchange} name='mobile' value={roominfo.mobile} placeholder="mobile" required />
                                 </div>
                                 <div className="row">
                                     <label className="lb col" >
