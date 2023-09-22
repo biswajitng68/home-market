@@ -117,12 +117,12 @@ export default function Addroom() {
                                 <div className="right">
                                
                                 <div className="row"><label className="lb col" >Apartment Name </label>
-                                    <input className="box col" onChange={onchange} name='name' value={roominfo.name} placeholder="name" required />
+                                    <input className="box col" onChange={onchange} name='name' value={roominfo.name}  required />
                                 </div>
                                 <div className="row">
                                     <label className="lb col" >
                                         City
-                                    </label><input className="box col" onChange={onchange} name='city' value={roominfo.city} placeholder="city" required />
+                                    </label><input className="box col" onChange={onchange} name='city' value={roominfo.city} placeholder="City" required />
                                 </div>
                                 <div className="row"><label className="lb col" >Address </label>
                                     <input className="box col" onChange={onchange} name="address" value={roominfo.address} placeholder="address" required />
@@ -130,7 +130,7 @@ export default function Addroom() {
                                 <div className="row">
                                     <label className="lb col" >
                                         Contact
-                                    </label><input className="box col" onChange={onchange} name='mobile' value={roominfo.mobile} placeholder="mobile" required />
+                                    </label><input className="box col" onChange={onchange} name='mobile' value={roominfo.mobile} required />
                                 </div>
                                 <div className="row">
                                     <label className="lb col" >
@@ -147,9 +147,9 @@ export default function Addroom() {
                                 </div>
                                 <div className="row"><label className="lb col" >No of Rooms </label>
                                     <div className="box col" style={{ display: "flex", flexWrap: "wrap" }}>
-                                        <i className='bx bx-plus-circle col' onClick={() => setCounter(counter + 1)}></i>
-                                        <label className='bx1 col' >{counter}</label>
                                         <i className='bx bx-minus-circle col' onClick={() => { if (counter !== 1) { setCounter(counter - 1) } }}></i>
+                                        <label className='bx1 col' >{counter}</label>  
+                                        <i className='bx bx-plus-circle col' onClick={() => setCounter(counter + 1)}></i>
                                     </div>
                                 </div>
                                 
