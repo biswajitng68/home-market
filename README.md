@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Welcome to Our Property Rental Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to our website! We are a team of dedicated professionals passionate about creating a seamless experience for individuals looking to rent or advertise their properties.
 
-## Available Scripts
+## Meet the Team
 
-In the project directory, you can run:
+- **Frontend Developers:**
+  - Ramkrishna Sarkar
+  - Biswajit Nag
 
-### `npm start`
+- **Backend Developer:**
+  - Rajib Thakur
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+With our combined expertise in frontend and backend development, we have created a user-friendly interface that serves as a platform connecting homeowners offering their properties for rent and individuals seeking rental accommodations. Our website aims to simplify the process and make it convenient for both parties involved.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+### Booking Rooms
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We provide a hassle-free room booking system that enables users to find and reserve the perfect accommodation that suits their needs. Whether you're looking for a single room or multiple rooms, our website offers a diverse range of options to choose from.
 
-### `npm run build`
+### Wishlists
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Our wishlist feature allows users to curate a personalized list of their favorite properties. You can add properties to your wishlist as you browse through the available options, making it easier to compare and finalize your choices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Room Types and Citywise Search
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We understand that everyone has unique preferences when it comes to selecting a rental property. Our website offers a comprehensive search functionality, allowing users to filter their results based on room types and specific cities. This ensures that you find the ideal accommodation that meets your specific requirements.
 
-### `npm run eject`
+### Advertise Your Rooms
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+If you are a homeowner looking to rent out your property, our website provides a simple and effective platform to advertise your rooms. Reach a wider audience and connect with potential tenants by showcasing the features, amenities, and rental details of your property.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contact Us
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If you have any questions or feedback, please don't hesitate to reach out to us. You can contact us through the following channels:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Email:** [contact@ourpropertyrentalwebsite.com](mailto:contact@ourpropertyrentalwebsite.com)
+- **Phone:** +1-555-123-4567
+- **Social Media:** Follow us on [Facebook](https://www.facebook.com/ourpropertyrentalwebsite) and [Twitter](https://twitter.com/ourpropertyrentalwebsite) for updates and news.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for choosing our property rental website. We look forward to serving your accommodation needs!
